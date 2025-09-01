@@ -1,8 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Padronizando */
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/* BODY */
+
 body {
     background-color: black;
 }
+
+/* HEADER E NAVBAR */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid aliceblue;
+    padding: 15px 0;
+}
+
+.text_portfolio {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+header nav ul{
+    display: flex;
+    gap: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.nav_link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.portfolio {
+    color: aliceblue;
+}
+
+/* Conteúdo Home  */
 
 #mainimage {
     width: 40%;
@@ -13,6 +60,7 @@ body {
 
 .main {
     justify-content: center;
+    padding: 35px 0;
 }
 
 #nameigor {
