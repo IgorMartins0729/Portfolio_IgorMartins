@@ -1,7 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
     background-color: black;
 }
 
-.div .mainimage {
-    width: 30px;
+#mainimage {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.main {
+    justify-content: center;
+}
+
+#nameigor {
+    color: #FFFFC5;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: italic;
+    font-size: xx-large;
+}
+
+.local_information {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#namelocal {
+    color: rgb(158, 168, 177);
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 150;
+    font-style: italic;
+    font-size: large;
+}
+
+#img_icongps {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.imgs_portfolio {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#imglinkedin {
+    display: block;
+    margin: 0 auto;
+    max-width: 40px;
+}
+
+#imgGithub {
+    display: block;
+    margin: 0 auto;
+    max-width: 40px;
 }
