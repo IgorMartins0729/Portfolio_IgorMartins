@@ -32,7 +32,7 @@ header {
     font-weight: 700;
 }
 
-header nav ul{
+header nav ul {
     display: flex;
     gap: 20px;
     font-family: "Montserrat", sans-serif;
@@ -111,4 +111,23 @@ header nav ul{
     display: block;
     margin: 0 auto;
     max-width: 40px;
+}
+
+.btn_cur {
+    display: flex;
+    justify-content: center;
+}
+
+#btn_cur {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    background-color: transparent;
+    border-radius: 16px;
+    padding: 16px 24px;
+    transition-duration: 0.4s;
+}
+
+#btn_cur:hover {
+    background-color: aliceblue;
+    color: black;
 }
