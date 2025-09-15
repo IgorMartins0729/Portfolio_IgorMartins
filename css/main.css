@@ -22,7 +22,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid aliceblue;
     padding: 15px 0;
 }
 
@@ -30,6 +29,7 @@ header {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 700;
+    padding: 0 20px;
 }
 
 header nav ul {
@@ -38,6 +38,7 @@ header nav ul {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 700;
+    padding: 0 20px;
 }
 
 .nav_link {
@@ -51,8 +52,8 @@ header nav ul {
 
 /* Conteúdo Home  */
 
-#mainimage {
-    width: 40%;
+.mainimage {
+    width: 22%;
     display: block;
     margin: 0 auto;
     border-radius: 50%;
@@ -63,7 +64,7 @@ header nav ul {
     padding: 35px 0;
 }
 
-#nameigor {
+.nameigor {
     color: #FFFFC5;
     text-align: center;
     font-family: "Montserrat", sans-serif;
@@ -80,7 +81,7 @@ header nav ul {
     align-items: center;
 }
 
-#namelocal {
+.namelocal {
     color: rgb(158, 168, 177);
     text-align: center;
     font-family: "Montserrat", sans-serif;
@@ -90,7 +91,7 @@ header nav ul {
     font-size: large;
 }
 
-#img_icongps {
+.img_icongps {
     max-width: 30px;
     max-height: 30px;
 }
@@ -101,24 +102,24 @@ header nav ul {
     justify-content: center;
 }
 
-#imglinkedin {
+.imglinkedin {
     display: block;
     margin: 0 auto;
     max-width: 40px;
 }
 
-#imgGithub {
+.imgGithub {
     display: block;
     margin: 0 auto;
     max-width: 40px;
 }
 
-.btn_cur {
+.cur {
     display: flex;
     justify-content: center;
 }
 
-#btn_cur {
+.btn_cur {
     font-family: "Montserrat", sans-serif;
     color: white;
     background-color: transparent;
@@ -127,7 +128,10 @@ header nav ul {
     transition-duration: 0.4s;
 }
 
-#btn_cur:hover {
+.btn_cur:hover {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
     background-color: aliceblue;
-    color: black;
+    
 }
+
