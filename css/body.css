@@ -5,20 +5,44 @@
     text-align: center;
 }
 
+.about_me h1 {
+    color: #F8DFBD;
+}
+
 .skills {
     display: grid;
     font-family: "Montserrat", sans-serif;
     text-align: center;
+    justify-content: center;
+}
+
+.skills h1 {
+    color: #C84648;
 }
 
 .skills table {
-    border: 2px solid;
-    padding: 0 50px;
+    padding: 0 15px;
 }
 
-.formation_academic {
+.skills table td, .skills table th {
+    padding: 0 15px;
+    border: 1px solid white;
+    padding: 10px 20px;
+}
+
+
+.academic {
     display: grid;
     font-family: "Montserrat", sans-serif;
     justify-items: center;
     text-align: center;
+}
+
+.academic .card{
+    border: 0;
+    margin-inline: auto;
+}
+
+.academic .card img {
+    width: 20px;
 }
