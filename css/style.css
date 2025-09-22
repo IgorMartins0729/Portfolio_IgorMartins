@@ -12,5 +12,13 @@
 }
 
 .skills table {
-    border: 1px solid 
+    border: 2px solid;
+    padding: 0 50px;
+}
+
+.formation_academic {
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    justify-items: center;
+    text-align: center;
 }
