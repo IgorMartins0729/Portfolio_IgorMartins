@@ -9,6 +9,7 @@
     <!-- Linkando CSS -->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/aboutme.css">
 
     <!-- Titulo -->
     <title>Portfolio</title>
@@ -81,32 +82,36 @@
        
     </section>
 
-    <!-- Info Skills -->
-    <section class="skills">
-        <div>
-        <h1>Habilidades</h1>
-        <br>
-        <br>
-            <table>
-                <thead>
-                <tr>
-                    <td><h3>Linguagens</h3></td>
-                    <td><h3>FrameWorks</h3></td>
-                    <td><h3>Ferramentas</h3></td>
-                </tr>
-                </thead>
+    <!-- Portfolio Showcase -->
+    <section class="showcase">
+        <div class="container">
+            <h1>Portfolio Showcase</h1>
+            <p>Explore meus projetos, Habilidades e Certificados</p>
 
-                <tbody>
-                <tr>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="tabs">
+                <button onclick="showTab('project')" class="tab-button active">Projetos</button>
+                <button onclick="showTab('skill')" class="tab-button">Habilidades</button>
+                <button onclick="showTab('certificates')" class="tab-button">Certificados</button>
+            </div>
+
+            <div>
+                <h2 id="project" class="tab-content">Projetos</h2>
+                <p>dd</p>
+            </div>
+
+            <div>
+                <h2 id="skill" class="tab-content hidden">Habilidades</h2>
+                <p>dd</p>
+            </div>
+
+            <div>
+                <h2 id="certificates" class="tab-content hidden">Certificados</h2>
+                <p>dd</p>
+            </div>
 
         </div>
-        <br>
+
+
     </section>
 
     <section class="academic">

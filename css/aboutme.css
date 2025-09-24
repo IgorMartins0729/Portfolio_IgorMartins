@@ -1,0 +1,12 @@
+.about_me {
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    justify-items: center;
+    text-align: center;
+}
+
+.about_me h1 {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffc5;
+    display: inline-block;
+}
