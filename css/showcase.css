@@ -1,3 +1,44 @@
-.showcase  {
+.showcase .container {
+    max-width: 800px;
+    width: 100%;
     text-align: center;
+}
+
+.showcase h1 {
+    color: #c084fc;
+    margin-bottom: 0.2em;
+}
+
+
+
+.showcase .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-buttom {
+    background: #1e1e3f;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tab-buttom.active {
+    background: #9333ea;
+}
+
+.tab-content {
+    background: #1a1a2e;
+    padding: 20px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none;
 }
