@@ -1,44 +1,70 @@
-.showcase .container {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
+.container_showcase {
+  font-family: "Montserrat", sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.showcase h1 {
-    color: #c084fc;
-    margin-bottom: 0.2em;
+.container_showcase h1 {
+  color: white;
+  border-bottom: 2px solid #ffffc5;
+  margin-bottom: 0.2em;
 }
 
-
-
-.showcase .tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+.container_showcase p {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
-.tab-buttom {
-    background: #1e1e3f;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;  /* espaço abaixo das abas */
 }
 
-.tab-buttom.active {
-    background: #9333ea;
+.tab-button {
+  background: #000000;
+  border: 2px solid white;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer; /* cursor de mãozinha */
+  transition: background 0.3s;
+  font-size: larger;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tab-button:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.tab-button.active {
+  background:  #ffffc5;
+  color: #000000;
+  border: 2px solid white;
 }
 
 .tab-content {
-    background: #1a1a2e;
-    padding: 20px;
-    border-radius: 10px;
-    transition: opacity 0.3s ease;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  transition: opacity 0.3s ease; /* efeito suave quando aparece */
+  margin-bottom: 2rem;
+}
+
+.tab-content p {
+    color: #000000;
+}
+
+.tab-content h2 {
+    color: #000000;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
