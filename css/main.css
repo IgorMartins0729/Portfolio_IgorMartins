@@ -130,8 +130,8 @@ header nav ul {
 
 .btn_cur:hover {
     color: rgb(0, 0, 0);
-    font-weight: 600;
-    background-color: aliceblue;
+    font-weight: 800;
+    background-color: #ffffc5;
     
 }
 

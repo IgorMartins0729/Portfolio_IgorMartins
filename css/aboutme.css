@@ -1,12 +1,58 @@
+/* PEGAR TODA SESSÃO */
 .about_me {
-    display: grid;
-    font-family: "Montserrat", sans-serif;
-    justify-items: center;
-    text-align: center;
+    font-family: "Montserrat",sans-serif;
 }
 
-.about_me h1 {
+/* TITULO SESSÃO */
+
+.about_me .title {
+    display: flex;
+    justify-content: center;
+}
+
+.about_me .title h1 {
     color: #ffffff;
-    border-bottom: 2px solid #ffffc5;
-    display: inline-block;
+    border-bottom: 2px solid #ffffc5; /*cria uma linha amarela de 2px abaixo do elemento. */
+    margin-bottom: 20px;
+}
+
+/* CONTAINER DO PERFIL E EXPERIENCIA */
+
+.about_me .container {
+    display: flex; /* coloca os filhos em linha */
+    gap: 20px; /* espaço entre os blocos */
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+
+/* BLOCO PROFILE */
+
+.about_me .container .profile {
+    flex: 1;
+}
+
+.about_me .container .profile h2 {
+    color: #ffffc5;
+}
+
+.about_me .container .profile p {
+    border-left: 1.2px solid #ffffc5; /* cor e largura da linha */
+    padding-left: 10px;  /* espaço entre a linha e o texto */
+    margin: 10px 0;  /* espaçamento do parágrafo */
+}
+
+/* BLOCO EXPERIENCE */
+
+.about_me .container .experience {
+    flex: 1;
+}
+
+.about_me .container .experience h2 {
+    color: #ffffc5;
+}
+
+.about_me .container .experience p {
+    border-left: 1.2px solid #ffffc5;
+    padding-left: 10px;
+    margin: 10px 0;
 }
