@@ -26,45 +26,68 @@
 }
 
 .tab-button {
-  background: #000000;
-  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.15); /* Fundo translúcido leve */
+  border: 2px solid rgba(255, 255, 255, 0.25);
   color: rgb(255, 255, 255);
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer; /* cursor de mãozinha */
   transition: background 0.3s;
   font-size: larger;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
+  z-index: 1;
 }
 
+/* Efeito hover */
 .tab-button:hover {
-  background: #ffffff;
-  color: #000000;
+  background: rgba(255, 255, 255, 0.2); /* Transparência aumentada no hover */
+  color: #ffffc5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05); /* Sutil aumento ao passar o mouse */
 }
 
+/* Efeito do botão ativo (selecionado) */
 .tab-button.active {
   background:  #ffffc5;
   color: #000000;
   border: 2px solid white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05); /* Aumento sutil quando ativo */
 }
 
+/* Tentando aplicar Efeito Liquid Glass content */
 .tab-content {
-  background: #ffffff;
-  padding: 20px;
+  background: rgba(123, 34, 34, 0.05); /* leve transparência */
+  border: 1px solid rgba(255, 255, 255, 0.18); /*borda sutil */
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-radius: 10px;
-  transition: opacity 0.3s ease; /* efeito suave quando aparece */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px 30px;
   margin-bottom: 2rem;
+  overflow: hidden;
+  z-index: 1;
+} 
+
+.tab-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(255,255,255,0.15), transparent);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.tab-content p {
-    color: #000000;
-}
 
-.tab-content h2 {
-    color: #000000;
+.tab-content h2 , .tab-button p {
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
 }
-
 .hidden {
   display: none;
 }

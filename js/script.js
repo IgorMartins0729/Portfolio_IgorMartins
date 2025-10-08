@@ -46,3 +46,30 @@ function showTab(tabId) {
     clickedButton.classList.add('active');
   }
 }
+
+
+
+
+
+
+
+// Seleciona todos os elementos com a classe "fade-in"
+const elementsToAnimate = document.querySelectorAll('.fade-in');
+
+// Cria uma instância do IntersectionObserver
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Quando o elemento entrar na tela, adiciona a animação
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target); // Para observar o elemento apenas uma vez
+        }
+    })
+}, {
+    threshold: 0.3 // Define o quanto o elemento precisa aparecer para acionar a animação (30% do elemento visível)
+});
+
+// Observa todos os elementos selecionados
+elementsToAnimate.forEach(element => {
+    observer.observe(element);
+});
