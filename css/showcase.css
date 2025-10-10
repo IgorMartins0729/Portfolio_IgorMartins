@@ -1,74 +1,84 @@
-.container_showcase {
+/* ========== SHOWCASE CONTAINER ========== */
+.showcase #container {
   font-family: "Montserrat", sans-serif;
   display: grid;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 2rem;
 }
 
-.container_showcase h1 {
+/* ========== TÍTULOS E TEXTOS ========== */
+
+.showcase #container .title_showcase h1 {
+  display: inline-block;        /* Faz a linha acompanhar o texto */
   color: white;
   border-bottom: 2px solid #ffffc5;
-  margin-bottom: 0.2em;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.container_showcase p {
-  color: white;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
 
+/* ========== BOTÕES DAS ABAS ========== */
 .tabs {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;  /* espaço abaixo das abas */
+  margin-bottom: 2rem;
 }
 
-.tab-button {
-  background: rgba(0, 0, 0, 0.15); /* Fundo translúcido leve */
+.tab-btn {
+  background: rgba(0, 0, 0, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.25);
-  color: rgb(255, 255, 255);
+  color: #fff;
   padding: 10px 20px;
   border-radius: 12px;
-  cursor: pointer; /* cursor de mãozinha */
-  transition: background 0.3s;
+  cursor: pointer;
+  transition: all 0.3s ease;
   font-size: larger;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
-  z-index: 1;
 }
 
-/* Efeito hover */
-.tab-button:hover {
-  background: rgba(255, 255, 255, 0.2); /* Transparência aumentada no hover */
+/* Hover */
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
   color: #ffffc5;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transform: scale(1.05); /* Sutil aumento ao passar o mouse */
+  transform: scale(1.05);
 }
 
-/* Efeito do botão ativo (selecionado) */
-.tab-button.active {
-  background:  #ffffc5;
-  color: #000000;
+/* Aba ativa */
+.tab-btn.active {
+  background: #ffffc5;
+  color: #000;
   border: 2px solid white;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transform: scale(1.05); /* Aumento sutil quando ativo */
+  transform: scale(1.05);
 }
 
-/* Tentando aplicar Efeito Liquid Glass content */
+/* ========== CONTEÚDOS (ÁREA VISÍVEL) ========== */
+.content {
+  display: none;
+}
+
+.content.show {
+  display: block;
+}
+
+/* ========== EFEITO "GLASS" NO CONTEÚDO ========== */
 .tab-content {
-  background: rgba(123, 34, 34, 0.05); /* leve transparência */
-  border: 1px solid rgba(255, 255, 255, 0.18); /*borda sutil */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   padding: 40px 30px;
   margin-bottom: 2rem;
+  position: relative;
   overflow: hidden;
-  z-index: 1;
-} 
+}
 
 .tab-content::after {
   content: '';
@@ -77,17 +87,15 @@
   left: 0;
   width: 100%;
   height: 40%;
-  background: linear-gradient(to top, rgba(255,255,255,0.15), transparent);
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent);
   z-index: 0;
   pointer-events: none;
 }
 
-
-.tab-content h2 , .tab-button p {
-    color: #ffffff;
-    position: relative;
-    z-index: 2;
-}
-.hidden {
-  display: none;
+/* Títulos dentro do conteúdo */
+.tab-content h2,
+.tab-content p {
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
 }
