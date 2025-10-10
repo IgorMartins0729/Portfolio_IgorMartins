@@ -1,79 +1,46 @@
+/* ==============================
+   Importando fonte Montserrat
+============================== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-/* Animação FadeIn  */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 0.5s; /* Delay para uma animação mais suave */
-}
-
-/* Animação para elementos que devem "deslizar para cima" */
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.slide-up {
-    opacity: 0;
-    animation: slideUp 1s forwards;
-}
-
-
-/* Padronizando */
-
+/* ==============================
+   Reset e padronização geral
+============================== */
 * {
     margin: 0;
     padding: 0;
-    list-style: none;
-    text-decoration: none;
-    color: aliceblue;
+    list-style: none;       /* Remove bullets de listas */
+    text-decoration: none;  /* Remove sublinhados de links */
+    color: aliceblue;       /* Cor padrão do texto */
+    box-sizing: border-box; /* Facilita cálculo de larguras e paddings */
 }
 
-/* BODY */
-
+/* ==============================
+   BODY
+============================== */
 body {
     background-color: black;
+    font-family: "Montserrat", sans-serif; /* Fonte padrão do site */
 }
 
-/* HEADER E NAVBAR */
-
+/* ==============================
+   HEADER E NAVBAR
+============================== */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espaço entre logo e menu */
     align-items: center;
     padding: 15px 0;
 }
 
 .text_portfolio {
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
     font-weight: 700;
     padding: 0 20px;
 }
 
 header nav ul {
     display: flex;
-    gap: 20px;
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
+    gap: 20px;               /* Espaçamento entre links */
     font-weight: 700;
     padding: 0 20px;
 }
@@ -83,34 +50,44 @@ header nav ul {
     justify-content: flex-end;
 }
 
-.portfolio {
-    color: aliceblue;
+.nav_link:hover {
+    color: #FFFFC5;           /* Mudança de cor ao passar o mouse */
 }
 
-/* Conteúdo Home  */
+.portfolio {
+    color: aliceblue;         /* Cor padrão do link "portfolio" */
+}
 
+/* ==============================
+   CONTEÚDO HOME
+============================== */
+
+/* Imagem principal */
 .mainimage {
     width: 22%;
     display: block;
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 50%;      /* Deixa a imagem redonda */
 }
 
+/* Container principal */
 .main {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 35px 0;
 }
 
+/* Nome principal */
 .nameigor {
     color: #FFFFC5;
     text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 900;
     font-style: italic;
     font-size: xx-large;
 }
 
+/* Informações de localização */
 .local_information {
     display: flex;
     gap: 10px;
@@ -121,54 +98,48 @@ header nav ul {
 .namelocal {
     color: rgb(158, 168, 177);
     text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 150;
     font-style: italic;
     font-size: large;
 }
 
+/* Ícone de GPS */
 .img_icongps {
     max-width: 30px;
     max-height: 30px;
 }
 
+/* Imagens de portfolio/social */
 .imgs_portfolio {
     display: flex;
     gap: 10px;
     justify-content: center;
 }
 
-.imglinkedin {
-    display: block;
-    margin: 0 auto;
-    max-width: 40px;
-}
-
+.imglinkedin,
 .imgGithub {
     display: block;
     margin: 0 auto;
     max-width: 40px;
 }
 
+/* Botão de currículo */
 .cur {
     display: flex;
     justify-content: center;
 }
 
 .btn_cur {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif; /* Mantendo a fonte original */
     color: white;
     background-color: transparent;
     border-radius: 16px;
     padding: 16px 24px;
-    transition-duration: 0.4s;
+    transition-duration: 0.4s;            /* Transição suave */
 }
 
 .btn_cur:hover {
     color: rgb(0, 0, 0);
     font-weight: 800;
-    background-color: #ffffc5;
-    
+    background-color: #FFFFC5;
 }
-
