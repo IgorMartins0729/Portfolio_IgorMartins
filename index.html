@@ -8,9 +8,10 @@
 
     <!-- Linkando CSS -->
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/aboutme.css">
     <link rel="stylesheet" href="../css/showcase.css">
+    <link rel="stylesheet" href="../css/academic.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
     <!-- Titulo -->
     <title>Portfolio</title>
@@ -26,14 +27,15 @@
     <nav>
         <ul>
             <li>
-                <a href="#"><h4 class="nav_link">About Me</h4></a>
+                <a href="#point_about"><h4 class="nav_link">About Me</h4></a>
             </li>
             <li>
-                <a href="#"><h4 class="nav_link">Skills</h4></a>
+                <a href="#point_show"><h4 class="nav_link">ShowCase</h4></a>
             </li>
             <li>
-                <a href="#"><h4 class="nav_link">Academic</h4></a>
+                <a href="#point_academic"><h4 class="nav_link">Academic</h4></a>
             </li>
+            
         </ul>
     </nav>
     </header>
@@ -69,28 +71,39 @@
     </section>
 
     <!-- Info About Me -->
-    <section class="about_me">
+    <section class="about_me" id="point_about">
         <div class="title">
             <h1>About Me</h1>
         </div>
 
         <div class="container">
             <div class="profile">
-            <h2>Perfil</h2>
+              <div id="specefic">
+              <img src="./img/Vector.svg">  
+              <h2>Perfil</h2>
+              </div>  
+              
             <p>
             Atualmente, estou cursando superior na Fatec de São José dos Campos, busco uma oportunidade
             para contribuir com a renda familiar, ao mesmo tempo em que desenvolvo minha carreira na área
             de Desenvolvedor. Busco uma vaga que me permita crescer profissionalmente e aplicar meus conhecimentos técnicos
-            de forma prática
+            de forma prática.
             </p>
             </div>
 
             <div class="experience"> 
-            <h2>Experiência</h2>
-            <p>Atualmente, estou cursando superior na Fatec de São José dos Campos, busco uma oportunidade
-            para contribuir com a renda familiar, ao mesmo tempo em que desenvolvo minha carreira na área
-            de Desenvolvedor. Busco uma vaga que me permita crescer profissionalmente e aplicar meus conhecimentos técnicos
-            de forma prática</p>
+                <div id="specefic2">
+                <img src="./img/Group.svg">
+                <h2>Experiência</h2>
+                </div>  
+
+                  <div class="experience_description">
+                  <h3>Auxiliar de T.I - Sonaca Brasil</h3>  
+                  <p>Prestava suporte técnico de 1º nível para usuários,
+                      auxiliando na resolução de problemas relacionados a hardware, software e redes.</p>
+                 <h3>Assistente de Service Desk - Atento Brasil</h3>
+                 <p>Atendimento ao cliente via telefone, e-mail e chat, prestando suporte.</p>   
+                  </div>
             </div>
         </div>
         <br>
@@ -99,46 +112,127 @@
 
 
     <!-- PORTFOLIO SHOWCASE -->
-<section class="showcase">
+<section class="showcase" id="point_show">
   <div id="container">
     <div class="title_showcase">
         <h1>Portfólio Showcase</h1>
     </div>
     
-    <!-- 🔹 BOTÕES DAS ABAS -->
+    <!-- BOTÕES DAS ABAS -->
     <div class="tabs">
       <button class="tab-btn active" content-id="projects">Projetos</button>
-      <button class="tab-btn" content-id="tech">Tecnologias</button>
+      <button class="tab-btn" content-id="tech">Hard & Soft Skills</button>
       <button class="tab-btn" content-id="certifi">Certificados</button>
     </div>
 
-    <!-- 🔹 CONTEÚDO: PROJETOS -->
+    <!-- CONTEÚDO: PROJETOS -->
     <div class="content show" id="projects">
       <div class="tab-content">
-        <h2>Projetos</h2>
-        <p>Conteúdo dos projetos aqui.</p>
+        <img src="./img/tcc.png" alt="" style="width: 70%;">
+        <h2>Sanja Feet</h2>
+        <p>Projeto TCC do Técnico: E-commerce de Tênis Raros</p>
+        <p>Feito com: HTML, CSS, JS, PHP</p>
+        <button><h3>VER PROJETO</h3></button>
       </div>
     </div>
 
     <!-- 🔹 CONTEÚDO: TECNOLOGIAS -->
     <div class="content" id="tech">
       <div class="tab-content">
-        <h2>Tecnologias</h2>
-        <p>Conteúdo sobre tecnologias aqui.</p>
+        <img src="./img/HTML.png" style="width: 20%;" alt="">
+        <img src="./img/css.svg" style="width: 10%;" alt="">
+        <img src="" alt="">
       </div>
     </div>
 
-    <!-- 🔹 CONTEÚDO: CERTIFICADOS -->
+    <!-- CONTEÚDO: CERTIFICADOS -->
     <div class="content" id="certifi">
       <div class="tab-content">
-        <h2>Certificados</h2>
-        <p>Conteúdo dos certificados aqui.</p>
+        <img src="./img/scrum2.png" alt="">
+        <h2>Introdução ao Scrum</h2>
+        <p>FGV Online</p>
       </div>
     </div>
 
   </div>
 </section>
 
+
+<section class="academic" id="point_academic">
+  
+  <div class="tittle_academic">
+    <h1>Formação Acadêmica</h1>
+  </div>
+    
+  <div class="container">
+      <div class="superior">
+        <div class="ajuste_img">
+          <img class="img_academic" src="./img/Group2.svg">
+          <img class="img_loading" src="./img/Vector3.svg" alt="">
+        </div>
+
+      <div class="faculdade">  
+        <h3 class="tittle_faculdade">Superior (FATEC SJC):</h3>
+        <h3>Desenvolvimento de Software Multiplataforma</h3>
+        <p>Previsão: Jul/2028</p>
+      </div>  
+
+      </div>  
+
+      <div class="tecnico">
+        <div class="ajuste_img2">
+          <img class="img_academic2" src="./img/Group2.svg">
+          <img class="img_check" src="./img/4.svg" alt="">
+        </div>  
+
+
+      <div class="medio">  
+      <h3 class="tittle_medio">Médio/Técnico (Colégio Joseense):</h3>
+      <h3>Informática</h3>
+      <p>Conclusão: 2022</p>
+      </div>  
+
+      </div>
+  </div>
+
+
+  <footer>
+
+    <div class="name_footer">
+      <h1>Igor Martins</h1>
+    </div>
+
+    <div class="links_footer">
+      <h2>Links</h2>
+      
+        <ul>
+          <li>
+              <a href="#point_about">About Me</a>
+          </li>
+          <li>
+              <a href="#point_show">ShowCase</a>
+          </li>
+          <li>
+              <a href="#point_academic">Academic</a>
+          </li>
+        </ul>
+      
+    </div>
+
+    <div class="conect_footer">
+      <h2>Conecte-se</h2>
+
+      <ul>
+        <li>Linkedin: <a href="https://www.linkedin.com/in/igormrtns/">linkedin.com/in/igormrtns</a></li>
+        <li>Github: <a href="https://github.com/IgorMartins0729">github.com/IgorMartins0729</a> </li>
+        <li>Gmail: igor.mrt02@gmail.com</li>
+        <li>WhatsApp: (12) 98827-1988</li>
+      </ul>
+    </div>
+
+  </footer>
+
+</section>
  
     
 

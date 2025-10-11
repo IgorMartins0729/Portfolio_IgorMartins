@@ -1,0 +1,74 @@
+/* === Seção Principal do Bloco .academic === */
+.academic .tittle_academic {
+  display: flex;
+  justify-content: center; /* Centraliza o título horizontalmente */
+}
+
+.academic .tittle_academic h1 {
+  display: inline-block;
+  border-bottom: 2px solid #ffffc5; /* Linha inferior decorativa */
+  margin-bottom: 39px; /* Espaço abaixo do título */
+}
+
+/* === Container Principal === */
+.academic .container {
+  display: grid;
+  justify-content: center; /* Centraliza o conteúdo do grid */
+}
+
+/* === Seção de Ensino Superior === */
+.academic .container .superior {
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  gap: 16px; /* Espaço entre os elementos */
+  margin-bottom: 55px; /* Espaço abaixo da seção */
+}
+
+.academic .container .superior .ajuste_img {
+  display: flex; /* Flex para alinhar imagens ou conteúdo interno */
+}
+
+.academic .container .superior .img_academic {
+  width: 72px; /* Tamanho da imagem principal da seção */
+}
+
+.academic .container .superior .img_loading {
+  width: 27px; /* Tamanho do ícone de carregamento */
+}
+
+/* === Seção de Curso Técnico === */
+.academic .container .tecnico {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre os elementos */
+}
+
+.academic .container .tecnico .ajuste_img2 {
+  display: flex; /* Flex para possível alinhamento de imagem */
+}
+
+.academic .container .tecnico .img_academic2 {
+  width: 72px; /* Tamanho da imagem principal */
+}
+
+.academic .container .tecnico .img_check {
+  width: 27px; /* Ícone de confirmação (check) */
+}
+
+/* === Informações sobre Faculdade === */
+.academic .container .faculdade {
+  display: grid; /* Grid para estrutura interna */
+}
+
+.academic .container .faculdade .tittle_faculdade {
+  color: #f0f0e2; /* Cor do título da faculdade */
+}
+
+/* === Informações sobre Ensino Médio === */
+.academic .container .medio {
+  display: grid;
+}
+
+.academic .container .medio .tittle_medio {
+  color: #f0f0e2; /* Cor do título do ensino médio */
+}

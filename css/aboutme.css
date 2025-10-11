@@ -13,7 +13,7 @@
 .about_me .title h1 {
     color: #ffffff;
     border-bottom: 2px solid #ffffc5; /*cria uma linha amarela de 2px abaixo do elemento. */
-    margin-bottom: 20px;
+    margin-bottom: 39px;
 }
 
 /* CONTAINER DO PERFIL E EXPERIENCIA */
@@ -29,6 +29,16 @@
 
 .about_me .container .profile {
     flex: 1;
+    align-items: center;
+}
+
+.about_me .container .profile #specefic {
+    display: flex;
+    gap: 15px;
+}
+
+.about_me .container .profile #specefic img {
+    width: 7%;
 }
 
 .about_me .container .profile h2 {
@@ -45,14 +55,29 @@
 
 .about_me .container .experience {
     flex: 1;
+    align-items: center;
+}
+
+.about_me .container .experience #specefic2 {
+    display: flex;
+    gap: 15px;
+}
+
+.about_me .container .experience #specefic2 img {
+    width: 8%;
 }
 
 .about_me .container .experience h2 {
     color: #ffffc5;
 }
 
-.about_me .container .experience p {
+.about_me .container .experience .experience_description {
     border-left: 1.2px solid #ffffc5;
     padding-left: 10px;
     margin: 10px 0;
+}
+
+
+.about_me .container .experience h3 {
+    color: #f0f0e2;
 }
