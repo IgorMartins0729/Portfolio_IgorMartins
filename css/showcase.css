@@ -36,7 +36,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: larger;
-  font-weight: 500;
+  font-weight: 800;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -63,10 +63,17 @@
 }
 
 .content.show {
-  display: block;
+  display: flex; /* flex para alinhar lado a lado */
+  flex-wrap: wrap; /* quebra linha se tiver muitos quadrados */ 
+  gap: 20px
 }
 
 /* ========== EFEITO "GLASS" NO CONTEÚDO ========== */
+.tab-content {
+  flex: 1 1 250px;
+  max-width: 500px;
+}
+
 .tab-content {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -74,8 +81,8 @@
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  padding: 40px 30px;
-  margin-bottom: 2rem;
+  padding: 10px 10px;
+  margin-bottom: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -95,15 +102,15 @@
 /* Títulos dentro do conteúdo */
 
 .tab-content button {
-  background-color: #ffffc5;
+  background-color: #ffffff;
   border-radius: 12px;
   margin-top: 8px;
   transition-duration: 0.4s;
 }
 
 .tab-content button h3 {
-  color: #000;
-  font-weight: 600;
+  color: #000000;
+  font-weight: 900;
   font-family: "Montserrat", sans-serif;
   padding: 10px 10px;
 }
@@ -113,5 +120,5 @@
 }
 
 .tab-content button:hover {
-  background-color: #eeee76;
+  background-color: #ffffc5;
 }
