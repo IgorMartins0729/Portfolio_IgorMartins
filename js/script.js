@@ -24,4 +24,27 @@ const tabs = document.querySelectorAll('.tab-btn');
 tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
 
 
+document.addEventListener("DOMContentLoaded", () => {
 
+  
+  // ======== ANIMAÇÃO DE SCROLL ========
+  const elements = document.querySelectorAll('.scroll-reveal');
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    elements.forEach(el => {
+      const elementTop = el.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - 100) {
+        el.classList.add('visible');
+      } else {
+        el.classList.remove('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+
+});

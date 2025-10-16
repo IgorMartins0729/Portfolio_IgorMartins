@@ -7,7 +7,7 @@
    Reset e padronização geral
 ============================== */
 * {
-    margin: 0;
+    margin: 4px;
     padding: 0;
     list-style: none;       /* Remove bullets de listas */
     text-decoration: none;  /* Remove sublinhados de links */
@@ -30,7 +30,7 @@ header {
     display: flex;
     justify-content: space-between; /* Espaço entre logo e menu */
     align-items: center;
-    padding: 15px 0;
+    padding: 0 0;
 }
 
 .text_portfolio {
@@ -63,8 +63,9 @@ header nav ul {
 ============================== */
 
 /* Imagem principal */
+
 .mainimage {
-    width: 22%;
+    width: 15%;
     display: block;
     margin: 0 auto;
     border-radius: 50%;      /* Deixa a imagem redonda */
@@ -131,6 +132,7 @@ header nav ul {
 
 .btn_cur {
     font-family: "Montserrat", sans-serif; /* Mantendo a fonte original */
+    font-weight: 650;
     color: white;
     background-color: transparent;
     border-radius: 16px;

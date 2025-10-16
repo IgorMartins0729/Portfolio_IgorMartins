@@ -1,5 +1,6 @@
 /* === Seção Principal do Bloco .academic === */
 .academic .tittle_academic {
+  margin-top: 10%;
   display: flex;
   justify-content: center; /* Centraliza o título horizontalmente */
 }
