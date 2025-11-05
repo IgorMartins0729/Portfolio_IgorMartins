@@ -1,50 +1,76 @@
 // ================== SHOWCASE TABS ==================
-
-// Função que exibe o conteúdo da aba clicada
+// Função chamada quando uma aba (tab) é clicada
 function tabClicked(tab) {
-  // Pega todos os conteúdos e remove a classe 'show'
+  
+  // Seleciona todos os conteúdos das abas e remove a classe 'show'
+  // Isso garante que só o conteúdo da aba clicada ficará visível
   const contents = document.querySelectorAll('.content');
   contents.forEach(content => content.classList.remove('show'));
 
-  // Remove destaque de todos os botões
+  // Remove a classe 'active' de todos os botões de abas
+  // Assim apenas o botão selecionado fica com destaque
   const tabs = document.querySelectorAll('.tab-btn');
   tabs.forEach(t => t.classList.remove('active'));
 
-  // Mostra o conteúdo correspondente ao botão clicado
+  // Descobre qual conteúdo deve ser exibido pegando o atributo 'content-id' do botão
   const contentId = tab.getAttribute('content-id');
   const content = document.getElementById(contentId);
+
+  // Mostra o conteúdo correspondente adicionando a classe 'show'
   content.classList.add('show');
 
-  // Marca o botão clicado como ativo
+  // Marca o botão clicado como ativo (visual selecionado)
   tab.classList.add('active');
 }
 
-// Seleciona todos os botões e adiciona o evento de clique
+// Adiciona o evento de clique a todos os botões de aba (tab-btn)
 const tabs = document.querySelectorAll('.tab-btn');
 tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
 
 
+// ================== SCROLL ANIMATION ==================
 document.addEventListener("DOMContentLoaded", () => {
-
   
-  // ======== ANIMAÇÃO DE SCROLL ========
+  // Seleciona todos os elementos que vão ter a animação
   const elements = document.querySelectorAll('.scroll-reveal');
 
   function revealOnScroll() {
-    const windowHeight = window.innerHeight;
+    const windowHeight = window.innerHeight; // Altura da janela do navegador
 
     elements.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
+      const elementTop = el.getBoundingClientRect().top; // Posição do elemento na tela
 
+      // Se o elemento entrou no campo de visão do usuário, exibe com animação
       if (elementTop < windowHeight - 100) {
         el.classList.add('visible');
       } else {
-        el.classList.remove('visible');
+        el.classList.remove('visible'); // Remove quando sai da tela (opcional)
       }
     });
   }
 
+  // Chama a função quando o usuário rolar a página
   window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
 
+  // Executa uma vez ao carregar para animar itens já visíveis
+  revealOnScroll();
+});
+
+
+// ================== BOTÃO "VER PROJETO" TOGGLE ==================
+// Abre/fecha o card com detalhes do projeto
+document.querySelectorAll(".btn-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+
+    // O próximo elemento depois do botão é o detalhe do projeto
+    const details = btn.nextElementSibling;
+
+    // Alterna a classe 'show' (exibe/esconde)
+    details.classList.toggle("show");
+
+    // Troca o texto do botão entre "VER PROJETO" e "FECHAR"
+    btn.textContent = details.classList.contains("show")
+      ? "FECHAR"
+      : "VER PROJETO";
+  });
 });

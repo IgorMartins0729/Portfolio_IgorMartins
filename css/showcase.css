@@ -100,26 +100,52 @@
   pointer-events: none;
 }
 
-/* Títulos dentro do conteúdo */
+/* ============================
+   ESTILO DO BOTÃO "VER PROJETO"
+   ============================ */
 
-.tab-content button {
-  background-color: #ffffff;
-  border-radius: 12px;
-  margin-top: 8px;
-  transition-duration: 0.4s;
+/* Estilo geral do botão dentro de cada card (tab-content) */
+.tab-content .btn-toggle {
+  background-color: #ffffff;   /* fundo branco do botão */
+  border-radius: 12px;         /* bordas arredondadas */
+  margin-top: 8px;             /* espaço acima do botão */
+  transition-duration: 0.4s;   /* animação suave no hover */
 }
 
-.tab-content button h3 {
-  color: #000000;
-  font-weight: 900;
-  font-family: "Montserrat", sans-serif;
-  padding: 10px 10px;
+/* Texto dentro do botão (o <h3>) */
+.tab-content .btn-toggle h3 {
+  color: #000000;              /* cor do texto */
+  font-weight: 900;            /* deixa a fonte bem negrito */
+  font-family: "Montserrat", sans-serif;  /* fonte escolhida */
+  padding: 10px 10px;          /* espaçamento interno do botão */
 }
 
+/* Espaçamento entre os parágrafos da área de projeto */
 .tab-content p {
   margin-top: 7px;
 }
 
-.tab-content button:hover {
-  background-color: #ffffc5;
+/* Efeito ao passar o mouse no botão */
+.tab-content .btn-toggle:hover {
+  background-color: #ffffc5;   /* muda para amarelo claro */
+}
+
+
+/* ============================
+   BLOCO QUE MOSTRA MAIS DETALHES DO PROJETO
+   ============================ */
+
+/* Começa escondido */
+.project-details {
+  display: none;               /* escondido inicialmente */
+  color: #000;
+  margin-top: 10px;            /* espaço acima */
+  padding: 10px;               /* espaço interno */
+  background: #f3f3f3;         /* fundo cinza claro */
+  border-radius: 8px;          /* bordas arredondadas */
+}
+
+/* Classe ativada via JavaScript para mostrar o conteúdo */
+.project-details.show {
+  display: block;              /* exibe o card quando clicado */
 }
