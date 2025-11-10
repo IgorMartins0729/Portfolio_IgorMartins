@@ -57,20 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ================== BOTÃO "VER PROJETO" TOGGLE ==================
-// Abre/fecha o card com detalhes do projeto
-document.querySelectorAll(".btn-toggle").forEach((btn) => {
+// ------- POP UP ----------
+// Abre o modal correspondente
+document.querySelectorAll(".btn-modal").forEach((btn) => {
   btn.addEventListener("click", () => {
-
-    // O próximo elemento depois do botão é o detalhe do projeto
-    const details = btn.nextElementSibling;
-
-    // Alterna a classe 'show' (exibe/esconde)
-    details.classList.toggle("show");
-
-    // Troca o texto do botão entre "VER PROJETO" e "FECHAR"
-    btn.textContent = details.classList.contains("show")
-      ? "FECHAR"
-      : "VER PROJETO";
+    const modalId = btn.getAttribute("data-modal");
+    const modal = document.getElementById(modalId);
+    if (modal) modal.style.display = "flex";
   });
+});
+
+// Fecha ao clicar no X
+document.querySelectorAll(".close").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".modal").style.display = "none";
+  });
+});
+
+// Fecha ao clicar fora do modal
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
+  }
 });
