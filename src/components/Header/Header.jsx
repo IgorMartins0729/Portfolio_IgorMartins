@@ -4,15 +4,15 @@ function Header() {
   return (
     <header>
       <nav>
-        <h2>Portfolio</h2>
+        <h2>Portfólio</h2>
 
         <ul>
-          <a href=""><li><h4>About Me</h4></li></a>
-          <a href=""><li><h4>Academic</h4></li></a>
-          <a href=""><li><h4>Projects</h4></li></a>
-          <a href=""><li><h4>Skills</h4></li></a>
-          <a href=""><li><h4>Certificates</h4></li></a>
-          <a href=""><li><h4>Contact</h4></li></a>
+          <a href=""><li><h3>About Me</h3></li></a>
+          <a href=""><li><h3>Academic</h3></li></a>
+          <a href=""><li><h3>Projects</h3></li></a>
+          <a href=""><li><h3>Skills</h3></li></a>
+          <a href=""><li><h3>Certificates</h3></li></a>
+          <a href=""><li><h3>Contact</h3></li></a>
         </ul>
       </nav>
     </header>

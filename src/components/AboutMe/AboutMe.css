@@ -1,0 +1,30 @@
+.title-aboutme {
+    margin-top: 255px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+.container-aboutme {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 180px;
+}
+
+.item-container {
+    padding-top: 15px;
+    margin-left: 100px;
+}
+
+.item-container>p {
+    border-left: 1px solid var(--cor-primaria);
+    line-height: 25px;
+    padding-left: 15px;
+}
+
+.title-container {
+    color: var(--cor-primaria);
+    text-align: center;
+}
+

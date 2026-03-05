@@ -1,0 +1,43 @@
+.title-academic {
+    margin-top: 255px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 65px;
+}
+
+.cointainer-card {
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 55px;
+}
+
+.img-card {
+    display: flex;
+}
+
+.img-card .icon1{
+    width: 100px;
+}
+
+.img-card .icon2{
+    width: 30px;
+}
+
+.img-card .icon3{
+    width: 30px;
+}
+
+.content-card {
+    display: grid;
+    line-height: 26px;
+}
+
+.content-card>h2 {
+    color: var(--cor-primaria);
+}
