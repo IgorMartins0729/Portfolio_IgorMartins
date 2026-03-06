@@ -1,6 +1,8 @@
 header>nav {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Garante que o título e os links fiquem na mesma linha horizontal */
+    padding: 20px 5%; /* Dá uma margem legal nas laterais da tela para não colar nas bordas */
 }
 
 nav>ul {
@@ -9,11 +11,15 @@ nav>ul {
     list-style: none;
 }
 
-nav>ul>a {
+/* Agora o CSS procura o 'a' dentro do 'li' */
+nav>ul>li>a {
     text-decoration: none;
     color: white;
+    font-size: 1.1rem; /* Já que tiramos o <h3>, coloquei um tamanho bom aqui */
+    font-weight: 600;  /* Deixa a fonte mais gordinha */
+    transition: color 0.3s ease; /* Faz a cor mudar suavemente no hover */
 }
 
-nav>ul>a:hover {
-    color: var(--cor-secundaria)
+nav>ul>li>a:hover {
+    color: var(--cor-secundaria);
 }

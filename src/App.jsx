@@ -7,7 +7,7 @@ import Academic from './components/Academic/Academic'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import Certificates from './components/Certificates/Certificates'
-import Contact from './components/Contact/Contact'
+import Footer from './components/Footer/Footer'
 /* rfce */
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Projects />
       <Skills />
       <Certificates />
-      <Contact />
+      <Footer />
     </main>
   )
 }

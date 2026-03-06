@@ -1,43 +1,92 @@
-.title-academic {
-    margin-top: 255px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 65px;
+.section-academic {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.cointainer-card {
+.title-academic {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.title-academic h1 {
+    font-size: 2.5rem;
+}
+
+/* Corrigido o erro de digitação e adicionado o Flexbox */
+.container-card {
+    display: flex;
     flex-direction: column;
+    align-items: center; /* Centraliza os cards na tela */
+    gap: 2rem; /* Espaço entre o card da Fatec e o do Colégio */
 }
 
 .card {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda dentro do card */
     align-items: center;
-    gap: 15px;
-    margin-bottom: 55px;
+    gap: 2rem;
+    background-color: #111; /* Fundo escuro para destacar do fundo preto da página */
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 800px; /* O SEGREDO: Força os dois cards a terem o mesmo tamanho exato! */
+    border: 1px solid transparent; /* Evita que o card "pule" quando aparece a borda no hover */
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border: 1px solid var(--cor-secundaria, #ffffff);
+    transform: translateY(-5px); /* Efeito suave de levantar o card, igual fizemos nos Projetos */
 }
 
 .img-card {
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.img-card .icon1{
+.img-card .icon1 {
     width: 100px;
 }
 
-.img-card .icon2{
-    width: 30px;
-}
-
-.img-card .icon3{
+.img-card .icon2, .img-card .icon3 {
     width: 30px;
 }
 
 .content-card {
-    display: grid;
-    line-height: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.content-card>h2 {
-    color: var(--cor-primaria);
+.content-card > h2 {
+    color: var(--cor-primaria, #ffffff);
+    font-size: 1.5rem;
+}
+
+.content-card > h3 {
+    color: #cccccc;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.content-card > p {
+    color: #888888;
+    font-size: 0.95rem;
+}
+
+/* RESPONSIVIDADE: Se a tela for menor que 768px (Celulares/Tablets) */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column; /* Joga os ícones pra cima e o texto pra baixo */
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+    
+    .img-card {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
 }

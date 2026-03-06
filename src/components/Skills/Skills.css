@@ -1,6 +1,95 @@
-.title-skills {
-    margin-top: 255px;
+.skills-container {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.skills-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Flexbox para colocar as duas caixas lado a lado */
+.skills-content {
     display: flex;
+    gap: 3rem;
     justify-content: center;
-    margin-bottom: 45px;
+    flex-wrap: wrap; /* Se a tela for pequena, quebra pra linha de baixo */
+}
+
+.hard-skills-box, .soft-skills-box {
+    flex: 1; /* Faz as duas caixas terem o mesmo tamanho base */
+    min-width: 300px;
+    background-color: #111;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.hard-skills-box h3, .soft-skills-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+/* Grid para as Hard Skills ficarem em bloquinhos */
+.hard-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: 1px solid #444;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background-color: #333;
+    border-color: white;
+}
+
+.skill-icon {
+    font-size: 2rem;
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ccc;
+}
+
+/* Lista simples e elegante para as Soft Skills */
+.soft-skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.soft-skills-list li {
+    font-size: 1.1rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #444;
+}
+
+.check-icon {
+    color: white;
 }

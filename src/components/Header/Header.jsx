@@ -7,12 +7,13 @@ function Header() {
         <h2>Portfólio</h2>
 
         <ul>
-          <a href=""><li><h3>About Me</h3></li></a>
-          <a href=""><li><h3>Academic</h3></li></a>
-          <a href=""><li><h3>Projects</h3></li></a>
-          <a href=""><li><h3>Skills</h3></li></a>
-          <a href=""><li><h3>Certificates</h3></li></a>
-          <a href=""><li><h3>Contact</h3></li></a>
+          
+          <li><a href="#aboutme">About Me</a></li>
+          <li><a href="#academic">Academic</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
