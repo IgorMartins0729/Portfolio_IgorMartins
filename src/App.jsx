@@ -17,7 +17,7 @@ import AddCourse from './components/AddCourse/AddCourse'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='Portfolio_IgorMartins'>
       <Routes>
         
         <Route path="/" element={
