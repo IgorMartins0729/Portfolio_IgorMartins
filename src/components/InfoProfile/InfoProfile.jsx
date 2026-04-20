@@ -4,7 +4,8 @@ function InfoProfile() {
   return (
     <div className='container-infoprofile'>
         <div className='img-main'>
-            <img src="/imgphotoigor.jpg" alt="Foto Igor" />
+            {/* Tiramos a barra antes do nome do arquivo */}
+            <img src="imgphotoigor.jpg" alt="Foto Igor" />
         </div>
         
         <div className='title-name'>
@@ -12,18 +13,19 @@ function InfoProfile() {
         </div>
 
         <div className='social-media'>
-            
             <a href="https://github.com/IgorMartins0729" target="_blank" rel="noopener noreferrer">
-              <img src="/github.png" alt="GitHub" />
+              {/* Sem a barra inicial */}
+              <img src="github.png" alt="GitHub" />
             </a>
             <a href="https://www.linkedin.com/in/igormrtns/" target="_blank" rel="noopener noreferrer">
-              <img src="/linkedin.png" alt="LinkedIn" />
+              {/* Sem a barra inicial */}
+              <img src="linkedin.png" alt="LinkedIn" />
             </a>
         </div>
 
         <div className='btn-upload-cv'>
           <a 
-            href="/Curriculo_IgorMartins.pdf" 
+            href="Curriculo_IgorMartins.pdf" 
             download="Curriculo_IgorMartins.pdf" 
             className="btn-download"
           >
