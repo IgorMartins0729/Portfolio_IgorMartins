@@ -1,0 +1,66 @@
+.main {
+    margin-top: 80px;
+}
+
+.pageTitle {
+    text-align: center;
+}
+
+.containerCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #111;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    gap: 2rem;
+    padding: 2rem 3rem;
+    max-width: 800px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border: 1px solid var(--cor-primaria);
+    transform: translateY(-5px);
+}
+
+.leftCard {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rightCard {
+    flex: 1;
+}
+
+.nameCourse {
+    color: var(--cor-primaria);
+    margin: 0;
+}
+
+.localCourse {
+    margin: 0;
+    margin-top: 8px;
+}
+
+.periodCourse {
+    margin: 0;
+    color: #6d6d6d;
+    margin-top: 8px;
+}
+
+.firstIcon {
+    width: 90px;
+}
+
+.secondIcon {
+    width: 30px;
+}

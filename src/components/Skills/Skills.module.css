@@ -1,0 +1,80 @@
+.main {
+    margin-top: 80px;
+}
+
+.pageTitle {
+    text-align: center;
+}
+
+.containerCard {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card {
+    flex: 1;
+    max-width: 600px;
+    background-color: #111;
+    border-radius: 15px;
+    padding: 0.5rem 2rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.titleCard {
+    color: var(--cor-primaria);
+    border-bottom: 2px solid rgb(45, 45, 45);
+}
+
+.contentCardSoft {
+    display: grid;
+}
+
+.itemSoft {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid rgb(50, 50, 50);
+    padding: 0.2rem 1rem;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.itemSoft:hover {
+    transform: translateY(-5px);
+    border: 2px solid rgb(163, 163, 163);
+}
+
+.contentCardHard {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.itemHard {
+    display: grid;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid rgb(50, 50, 50);
+    padding: 0.5rem 0.5rem;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.itemHard:hover {
+    transform: translateY(-5px);
+    border: 2px solid rgb(163, 163, 163);
+}
+
+.imgItemHard {
+   width: 20px;
+    object-fit: cover;
+}
+
+.itemHard h3 {
+    text-align: center;
+}
+
+

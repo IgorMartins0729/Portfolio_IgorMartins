@@ -1,0 +1,53 @@
+.main {
+    margin-top: 80px;
+}
+
+.h1 {
+    text-align: center;
+    color: var(--cor-primaria);
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+.containerImgMain {
+    display: flex;
+    justify-content: center;
+}
+
+.containerImgMain img {
+    border-radius: 50%;
+    width: 250px;
+}
+
+.containerImgSocial {
+    display: flex;
+    justify-content: center;
+}
+
+.containerImgSocial Img {
+    width: 60px;
+}
+
+.btnCV {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btnCV button {
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    border: 2px solid white;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btnCV button:hover {
+    color: black;
+    background-color: white;
+}

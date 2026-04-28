@@ -1,0 +1,61 @@
+.main {
+    margin-top: 80px;
+}
+
+.pageTitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sectionTitle {
+    color: var(--cor-primaria);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 160px;
+}
+
+.containerContent {
+    flex: 1;
+}
+
+.description {
+    font-weight: 300;
+    line-height: 30px;
+    text-align: justify;
+    border-left: 2px solid var(--cor-primaria);
+    padding-left: 15px;
+}
+
+.content {
+    border-left: 2px solid var(--cor-primaria);
+    padding-left: 15px;
+}
+
+.experienceItem {
+    margin-bottom: 24px;
+}
+
+.experienceItem:last-child {
+    margin-bottom: 0;
+}
+
+.period {
+    color: rgb(141, 140, 140);
+    margin: 0;
+    margin-top: 4px;
+    display: block;
+}
+
+.role {
+   margin: 0; 
+}
+
+.companyName {
+    margin: 0;
+    margin-bottom: 4px;
+}
