@@ -1,7 +1,7 @@
 import styles from './Projects.module.css'
-import projetoImagem1 from '../../assets/sanja.png'
-import projetoImagem2 from '../../assets/sjc.png'
-import projetoImagem3 from '../../assets/Group2.svg'
+import projetoImagem1 from '../../../../../assets/sanja.png'
+import projetoImagem2 from '../../../../../assets/sjc.png'
+import projetoImagem3 from '../../../../../assets/Group2.svg'
 
 const arrayProjetos = [
     { id: 1, 

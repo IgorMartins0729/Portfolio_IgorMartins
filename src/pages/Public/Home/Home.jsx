@@ -1,13 +1,14 @@
 import React from 'react'
-import Info from "./sections/Info/Info"
 import Navbar from "../../../components/Navbar/Navbar"
+import Footer from "../../../components/Footer/Footer"
+import Info from "./sections/Info/Info"
 import AboutMe from "./sections/AboutMe/AboutMe"
-import Academic from "./components/Academic/Academic"
-import Projects from "./components/Projects/Projects"
-import Skills from "./components/Skills/Skills"
-import Certificates from "./components/Certificates/Certificates"
-import Contact from "./components/Contact/Contact"
-import Footer from "./components/Footer/Footer"
+import Academic from "./sections/Academic/Academic"
+import Projects from "./sections/Projects/Projects"
+import Skills from "./sections/Skills/Skills"
+import Certificates from "./sections/Certificates/Certificates"
+import Contact from "./sections/Contact/Contact"
+
 
 function Home() {
   return (

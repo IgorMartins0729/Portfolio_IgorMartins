@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Academic.module.css'
-import iconStudy from '../../assets/Group2.svg'
-import iconLoading from '../../assets/Vector3.svg'
-import iconCheck from '../../assets/4.svg'
+import iconStudy from '../../../../../assets/Group2.svg'
+import iconLoading from '../../../../../assets/Vector3.svg'
+import iconCheck from '../../../../../assets/4.svg'
 
 const arrayCursos = [
   { id: 1, curso: "Desenvolvimento de Software Multiplataforma", instituicao: "FATEC São José dos Campos", periodo: "Início: 08/2025 - Previsão: 07/2028", icone: iconLoading },

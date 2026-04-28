@@ -1,7 +1,7 @@
 import styles from './Info.module.css'
-import fotoIgor from "../../assets/igor.jpg"
-import logoGithub from "../../assets/github.png"
-import logoLinkedin from "../../assets/linkedin.png"
+import fotoIgor from "../../../../../assets/igor.jpg"
+import logoGithub from "../../../../../assets/github.png"
+import logoLinkedin from "../../../../../assets/linkedin.png"
 
 function Info() {
   return (

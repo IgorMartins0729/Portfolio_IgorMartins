@@ -1,11 +1,12 @@
 import React from 'react'
+import Home from '../pages/Public/Home/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function AppRoutes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/Portfolio_IgorMartins'>
         <Routes>
-            <Route></Route>
+            <Route path='/' element={<Home />} />
         </Routes>
     </BrowserRouter>
   )
