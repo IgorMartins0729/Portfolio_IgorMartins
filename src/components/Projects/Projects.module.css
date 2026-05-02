@@ -74,31 +74,3 @@
     padding: 0.5rem 0.5rem;
     border: 1px solid rgb(45, 45, 45);
 }
-
-.containerCRUD {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-}
-
-.containerCRUD button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    padding: 0;
-}
-
-.containerCRUD button:hover {
-    color: rgb(247, 247, 67);
-}
-
-.btnCard button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}

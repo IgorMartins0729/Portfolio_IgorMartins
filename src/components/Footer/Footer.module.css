@@ -1,0 +1,94 @@
+.main {
+    margin-top: 15rem;
+}
+
+.containerFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 2rem 2rem;
+    /* margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px; */
+    border-radius: 25px;
+}
+
+.leftGroup {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgGroup {
+    display: flex;
+    justify-content: left;
+}
+
+.imgGroup img {
+    width: 40px;
+}
+
+.leftGroup h2 {
+    color: var(--cor-primaria);
+}
+
+.btnGroup {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.btnGroup button {
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    border: 2px solid white;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btnGroup button:hover {
+    color: black;
+    background-color: white;
+}
+
+.rightGroup{
+    display: flex;
+    gap: 4rem;
+    margin-right: 1rem;
+}
+
+.navMenu {
+    display: flex;
+    gap: 2rem
+}
+
+.rightGroup h3 {
+    color: var(--cor-primaria);
+    text-align: center;
+}
+
+.rightGroup ul {
+    list-style: none;
+    margin-top: 0;
+}
+
+.rightGroup li {
+    padding: 0.3rem 0;
+}
+
+.rightGroup a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.rightGroup a:hover {
+    color: var(--cor-primaria); 
+}

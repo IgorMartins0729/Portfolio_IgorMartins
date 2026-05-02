@@ -1,0 +1,165 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal {
+    background-color: #111;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgb(45, 45, 45);
+}
+
+.title {
+    color: var(--cor-primaria);
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.closeBtn:hover {
+    color: var(--cor-primaria);
+}
+
+.body {
+    padding: 1.5rem 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--cor-primaria);
+}
+
+.input,
+.select,
+.textarea {
+    background-color: #1c1c1c;
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border 0.3s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+
+.textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.checkboxField {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.btnPrimary,
+.btnSecondary,
+.btnDanger {
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btnPrimary {
+    background-color: var(--cor-primaria);
+    color: black;
+    border: 2px solid var(--cor-primaria);
+}
+
+.btnPrimary:hover {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+}
+
+.btnSecondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btnSecondary:hover {
+    background-color: white;
+    color: black;
+}
+
+.btnDanger {
+    background-color: rgb(180, 60, 60);
+    color: white;
+    border: 2px solid rgb(180, 60, 60);
+}
+
+.btnDanger:hover {
+    background-color: rgb(220, 80, 80);
+    border-color: rgb(220, 80, 80);
+}
+
+.confirmText {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.5;
+}
+
+.confirmHighlight {
+    color: var(--cor-primaria);
+    font-weight: bold;
+}

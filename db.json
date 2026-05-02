@@ -1,5 +1,20 @@
 {
-    "certificados": [
-        
+        "Formacao": [
+            {
+            "id": 1,
+            "isCompleted": false,
+            "nomeCurso": "Desenvolvimento de Software Multiplataforma",
+            "localCurso": "FATEC São José dos Campos",
+            "inicioCurso": "08/2025",
+            "fimCurso": "07/2028"
+        },
+        {
+            "id": 2,
+            "isCompleted": true,
+            "nomeCurso": "Técnico de Informática",
+            "localCurso": "Colégio Joseense",
+            "inicioCurso": "01/2020",
+            "fimCurso": "12/2022"
+        }
     ]
 }

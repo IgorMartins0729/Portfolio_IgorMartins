@@ -56,7 +56,6 @@
 .itemHard {
     display: grid;
     align-items: center;
-    justify-items: center;
     border-radius: 10px;
     border: 2px solid rgb(50, 50, 50);
     padding: 0.5rem 0.5rem;
@@ -70,37 +69,12 @@
 }
 
 .imgItemHard {
-   width: 40px;
-   object-fit: cover;
+   width: 20px;
+    object-fit: cover;
 }
 
 .itemHard h3 {
     text-align: center;
-    margin-top: 0;
-}
-
-.containerCRUD {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-}
-
-.containerCRUD button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    padding: 0;
-}
-
-.containerCRUD button:hover {
-    color: rgb(247, 247, 67);
 }
 
 

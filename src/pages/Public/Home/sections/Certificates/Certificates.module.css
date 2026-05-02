@@ -26,3 +26,46 @@
     border: 1px solid var(--cor-primaria);
     transform: translateY(-5px);
 }
+
+.containerCRUD {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.containerCRUD button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    padding: 0;
+}
+
+.containerCRUD button:hover {
+    color: rgb(247, 247, 67);
+}
+
+.imgCard {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.date {
+    color: #6d6d6d;
+    margin-top: 8px;
+}
+
+.empty {
+    color: #6d6d6d;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+}

@@ -59,27 +59,3 @@
     margin: 0;
     margin-bottom: 4px;
 }
-
-.containerCRUD {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.containerCRUD button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    padding: 0;
-}
-
-.containerCRUD button:hover {
-    color: rgb(247, 247, 67);
-}

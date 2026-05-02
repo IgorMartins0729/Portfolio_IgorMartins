@@ -1,12 +1,83 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './AboutMe.module.css'
+import modalStyles from '../../../../../components/BaseModal/BaseModal.module.css'
+import {
+  getExperiencias,
+  adicionarExperiencia,
+  editarExperiencia,
+  excluirExperiencia
+} from '../../../../../services/experienciaService'
+import BaseModal from '../../../../../components/BaseModal/BaseModal'
 
-const arrayExperienciaProfissional = [
-  { id: 1, nomeEmpresa: "Kaffa Tech", cargo: "Estagiário de Desenvolvimento de Software", periodo: "Dez 2025 - Atual" },
-  { id: 2, nomeEmpresa: "Sonaca Brasil", cargo: "Auxiliar de TI", periodo: "Mar 2024 - Jun 2025" }
-]
+const formInicial = {
+  nomeEmpresa: '',
+  cargo: '',
+  periodo: ''
+}
 
 function AboutMe() {
+  const [experiencias, setExperiencias] = useState(() => getExperiencias())
+  const [modo, setModo] = useState(null)
+  const [idSelecionado, setIdSelecionado] = useState('')
+  const [form, setForm] = useState(formInicial)
+
+  const abrirAdicionar = () => {
+    setForm(formInicial)
+    setIdSelecionado('')
+    setModo('add')
+  }
+
+  const abrirEditar = () => {
+    setIdSelecionado('')
+    setForm(formInicial)
+    setModo('edit')
+  }
+
+  const abrirExcluir = () => {
+    setIdSelecionado('')
+    setModo('delete')
+  }
+
+  const fechar = () => {
+    setModo(null)
+    setIdSelecionado('')
+    setForm(formInicial)
+  }
+
+  const selecionar = (id) => {
+    setIdSelecionado(id)
+    if (modo === 'edit') {
+      const exp = experiencias.find(e => String(e.id) === String(id))
+      if (exp) {
+        setForm({
+          nomeEmpresa: exp.nomeEmpresa,
+          cargo: exp.cargo,
+          periodo: exp.periodo
+        })
+      }
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (modo === 'add') {
+      setExperiencias(adicionarExperiencia(form))
+    } else if (modo === 'edit' && idSelecionado) {
+      setExperiencias(editarExperiencia(Number(idSelecionado), form))
+    } else if (modo === 'delete' && idSelecionado) {
+      setExperiencias(excluirExperiencia(Number(idSelecionado)))
+    }
+    fechar()
+  }
+
+  const tituloModal =
+    modo === 'add' ? 'Adicionar Experiência' :
+    modo === 'edit' ? 'Editar Experiência' :
+    modo === 'delete' ? 'Excluir Experiência' : ''
+
+  const itemSelecionado = experiencias.find(e => String(e.id) === String(idSelecionado))
+  const mostrarFormulario = modo === 'add' || (modo === 'edit' && idSelecionado)
+
   return (
     <section className={styles.main}>
       <h1 className={styles.pageTitle}>Sobre mim e Experiência Profissional</h1>
@@ -27,19 +98,111 @@ function AboutMe() {
         <div className={styles.containerContent}>
           <h2 className={styles.sectionTitle}>Experiência Profissional</h2>
           <div className={styles.content}>
-            {arrayExperienciaProfissional.map(experiencias => (
-              <article key={experiencias.id} className={styles.experienceItem}>
-                <h3 className={styles.companyName}>{experiencias.nomeEmpresa}</h3>
-                <p className={styles.role}>{experiencias.cargo}</p>
-                <time className={styles.period}>{experiencias.periodo}</time>
+            {experiencias.map(exp => (
+              <article key={exp.id} className={styles.experienceItem}>
+                <h3 className={styles.companyName}>{exp.nomeEmpresa}</h3>
+                <p className={styles.role}>{exp.cargo}</p>
+                <time className={styles.period}>{exp.periodo}</time>
               </article>
             ))}
           </div>
 
+          <div className={styles.containerCRUD}>
+            <button type="button" onClick={abrirAdicionar}>Adicionar Experiência</button>
+            <button type="button" onClick={abrirEditar}>Editar Experiência</button>
+            <button type="button" onClick={abrirExcluir}>Excluir Experiência</button>
+          </div>
         </div>
-
       </div>
 
+      <BaseModal isOpen={modo !== null} onClose={fechar} title={tituloModal}>
+        <form className={modalStyles.form} onSubmit={handleSubmit}>
+          {(modo === 'edit' || modo === 'delete') && (
+            <div className={modalStyles.field}>
+              <label className={modalStyles.label}>Selecione a experiência</label>
+              <select
+                className={modalStyles.select}
+                value={idSelecionado}
+                onChange={(e) => selecionar(e.target.value)}
+                required
+              >
+                <option value="">-- Escolha --</option>
+                {experiencias.map(e => (
+                  <option key={e.id} value={e.id}>{e.nomeEmpresa} — {e.cargo}</option>
+                ))}
+              </select>
+            </div>
+          )}
+
+          {modo === 'delete' && itemSelecionado && (
+            <p className={modalStyles.confirmText}>
+              Tem certeza que deseja excluir{' '}
+              <span className={modalStyles.confirmHighlight}>
+                {itemSelecionado.nomeEmpresa} — {itemSelecionado.cargo}
+              </span>?
+            </p>
+          )}
+
+          {mostrarFormulario && (
+            <>
+              <div className={modalStyles.field}>
+                <label className={modalStyles.label}>Empresa</label>
+                <input
+                  className={modalStyles.input}
+                  type="text"
+                  value={form.nomeEmpresa}
+                  onChange={(e) => setForm({ ...form, nomeEmpresa: e.target.value })}
+                  required
+                />
+              </div>
+              <div className={modalStyles.field}>
+                <label className={modalStyles.label}>Cargo</label>
+                <input
+                  className={modalStyles.input}
+                  type="text"
+                  value={form.cargo}
+                  onChange={(e) => setForm({ ...form, cargo: e.target.value })}
+                  required
+                />
+              </div>
+              <div className={modalStyles.field}>
+                <label className={modalStyles.label}>Período</label>
+                <input
+                  className={modalStyles.input}
+                  type="text"
+                  placeholder="Mar 2024 - Jun 2025"
+                  value={form.periodo}
+                  onChange={(e) => setForm({ ...form, periodo: e.target.value })}
+                  required
+                />
+              </div>
+            </>
+          )}
+
+          <div className={modalStyles.actions}>
+            <button type="button" className={modalStyles.btnSecondary} onClick={fechar}>
+              Cancelar
+            </button>
+            {modo === 'delete' ? (
+              <button
+                type="submit"
+                className={modalStyles.btnDanger}
+                disabled={!idSelecionado}
+              >
+                Excluir
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className={modalStyles.btnPrimary}
+                disabled={modo === 'edit' && !idSelecionado}
+              >
+                Salvar
+              </button>
+            )}
+          </div>
+        </form>
+      </BaseModal>
     </section>
   )
 }

@@ -64,27 +64,3 @@
 .secondIcon {
     width: 30px;
 }
-
-.containerCRUD {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-}
-
-.containerCRUD button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    padding: 0;
-}
-
-.containerCRUD button:hover {
-    color: rgb(247, 247, 67);
-}

@@ -7,7 +7,6 @@ import Academic from "./sections/Academic/Academic"
 import Projects from "./sections/Projects/Projects"
 import Skills from "./sections/Skills/Skills"
 import Certificates from "./sections/Certificates/Certificates"
-import Contact from "./sections/Contact/Contact"
 
 
 function Home() {
@@ -20,7 +19,6 @@ function Home() {
       <Projects></Projects>
       <Skills></Skills>
       <Certificates></Certificates>
-      <Contact></Contact>
       <Footer></Footer>
     </main>
   )
