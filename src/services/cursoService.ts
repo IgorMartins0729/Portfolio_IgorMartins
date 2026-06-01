@@ -1,66 +1,45 @@
+const API = 'http://localhost:3001/api'
+
 export interface Curso {
-    id: number
-    isCompleted: boolean
-    nomeCurso: string
-    localCurso: string
-    inicioCurso: string
-    fimCurso: string
+  id: number
+  isCompleted: boolean
+  nomeCurso: string
+  localCurso: string
+  inicioCurso: string
+  fimCurso: string
 }
 
-export type CursoInput = Omit<Curso, "id">
+export type CursoInput = Omit<Curso, 'id'>
 
-const STORAGE_KEY = "meusCursos"
-
-const cursosIniciais: Curso[] = [
-    {
-        id: 1,
-        isCompleted: false,
-        nomeCurso: "Desenvolvimento de Software Multiplataforma",
-        localCurso: "FATEC São José dos Campos",
-        inicioCurso: "08/2025",
-        fimCurso: "07/2028"
-    },
-    {
-        id: 2,
-        isCompleted: true,
-        nomeCurso: "Técnico de Informática",
-        localCurso: "Colégio Joseense",
-        inicioCurso: "01/2020",
-        fimCurso: "12/2022"
-    }
-]
-
-const salvar = (cursos: Curso[]) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cursos))
+const checarResposta = async (res: Response) => {
+  if (!res.ok) throw new Error(`Erro ${res.status}: ${res.statusText}`)
+  return res.json()
 }
 
-export const getCursos = (): Curso[] => {
-    const textoSalvo = localStorage.getItem(STORAGE_KEY)
-    if (textoSalvo != null) {
-        return JSON.parse(textoSalvo)
-    }
-    salvar(cursosIniciais)
-    return cursosIniciais
+export const getCursos = async (): Promise<Curso[]> => {
+  const res = await fetch(`${API}/cursos`)
+  return checarResposta(res)
 }
 
-export const adicionarCurso = (curso: CursoInput): Curso[] => {
-    const cursos = getCursos()
-    const novo: Curso = { id: Date.now(), ...curso }
-    const atualizado = [...cursos, novo]
-    salvar(atualizado)
-    return atualizado
+export const adicionarCurso = async (curso: CursoInput): Promise<Curso> => {
+  const res = await fetch(`${API}/cursos`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(curso),
+  })
+  return checarResposta(res)
 }
 
-export const editarCurso = (id: number, curso: CursoInput): Curso[] => {
-    const cursos = getCursos()
-    const atualizado = cursos.map(c => (c.id === id ? { id, ...curso } : c))
-    salvar(atualizado)
-    return atualizado
+export const editarCurso = async (id: number, curso: CursoInput): Promise<Curso> => {
+  const res = await fetch(`${API}/cursos/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(curso),
+  })
+  return checarResposta(res)
 }
 
-export const excluirCurso = (id: number): Curso[] => {
-    const cursos = getCursos()
-    const atualizado = cursos.filter(c => c.id !== id)
-    salvar(atualizado)
-    return atualizado
+export const excluirCurso = async (id: number): Promise<void> => {
+  const res = await fetch(`${API}/cursos/${id}`, { method: 'DELETE' })
+  if (!res.ok) throw new Error(`Erro ${res.status}: ${res.statusText}`)
 }

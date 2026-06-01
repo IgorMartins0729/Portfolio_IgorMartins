@@ -9,27 +9,27 @@ function Navbar() {
         
         <ul className={styles.ul}>
             <li>
-              <a className={styles.a} href="">Sobre mim</a>
+              <a className={styles.a} href="#sobre-mim">Sobre mim</a>
             </li>
 
             <li>
-              <a className={styles.a} href="">Formação Acadêmica</a>
+              <a className={styles.a} href="#academico">Formação Acadêmica</a>
             </li>
 
             <li>
-              <a className={styles.a} href="">Projetos</a>
+              <a className={styles.a} href="#projetos">Projetos</a>
             </li>
 
             <li>
-              <a className={styles.a} href="">Hard & Soft Skills</a>
+              <a className={styles.a} href="#skills">Hard & Soft Skills</a>
             </li>
 
             <li>
-              <a className={styles.a} href="">Certificados</a>
+              <a className={styles.a} href="#certificados">Certificados</a>
             </li>
 
             <li>
-              <a className={styles.a} href="">Contato</a>
+              <a className={styles.a} href="#contato">Contato</a>
             </li>
 
         </ul>

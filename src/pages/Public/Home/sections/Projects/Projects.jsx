@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Projects.module.css'
 import modalStyles from '../../../../../components/BaseModal/BaseModal.module.css'
 import {
@@ -9,95 +9,75 @@ import {
 } from '../../../../../services/projetoService'
 import BaseModal from '../../../../../components/BaseModal/BaseModal'
 
-const formInicial = {
-  titulo: '',
-  descricao: '',
-  tecnologias: '',
-  imagem: '',
-  link: ''
-}
+const formInicial = { titulo: '', descricao: '', tecnologias: '', imagem: '', link: '' }
 
 function Projects() {
-  const [projetos, setProjetos] = useState(() => getProjetos())
+  const [projetos, setProjetos] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [erro, setErro] = useState(false)
   const [modo, setModo] = useState(null)
   const [idSelecionado, setIdSelecionado] = useState('')
   const [form, setForm] = useState(formInicial)
 
-  const abrirAdicionar = () => {
-    setForm(formInicial)
-    setIdSelecionado('')
-    setModo('add')
-  }
+  useEffect(() => {
+    getProjetos()
+      .then(setProjetos)
+      .catch(() => setErro(true))
+      .finally(() => setLoading(false))
+  }, [])
 
-  const abrirEditar = () => {
-    setIdSelecionado('')
-    setForm(formInicial)
-    setModo('edit')
-  }
-
-  const abrirExcluir = () => {
-    setIdSelecionado('')
-    setModo('delete')
-  }
-
-  const fechar = () => {
-    setModo(null)
-    setIdSelecionado('')
-    setForm(formInicial)
-  }
+  const abrirAdicionar = () => { setForm(formInicial); setIdSelecionado(''); setModo('add') }
+  const abrirEditar = () => { setIdSelecionado(''); setForm(formInicial); setModo('edit') }
+  const abrirExcluir = () => { setIdSelecionado(''); setModo('delete') }
+  const fechar = () => { setModo(null); setIdSelecionado(''); setForm(formInicial) }
 
   const selecionar = (id) => {
     setIdSelecionado(id)
     if (modo === 'edit') {
       const proj = projetos.find(p => String(p.id) === String(id))
-      if (proj) {
-        setForm({
-          titulo: proj.titulo,
-          descricao: proj.descricao,
-          tecnologias: proj.tecnologias,
-          imagem: proj.imagem,
-          link: proj.link || ''
-        })
-      }
+      if (proj) setForm({ titulo: proj.titulo, descricao: proj.descricao, tecnologias: proj.tecnologias, imagem: proj.imagem, link: proj.link || '' })
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (modo === 'add') {
-      setProjetos(adicionarProjeto(form))
-    } else if (modo === 'edit' && idSelecionado) {
-      setProjetos(editarProjeto(Number(idSelecionado), form))
-    } else if (modo === 'delete' && idSelecionado) {
-      setProjetos(excluirProjeto(Number(idSelecionado)))
+    try {
+      if (modo === 'add') {
+        const novo = await adicionarProjeto(form)
+        setProjetos(prev => [...prev, novo])
+      } else if (modo === 'edit' && idSelecionado) {
+        const atualizado = await editarProjeto(Number(idSelecionado), form)
+        setProjetos(prev => prev.map(p => p.id === atualizado.id ? atualizado : p))
+      } else if (modo === 'delete' && idSelecionado) {
+        await excluirProjeto(Number(idSelecionado))
+        setProjetos(prev => prev.filter(p => p.id !== Number(idSelecionado)))
+      }
+      fechar()
+    } catch {
+      alert('Erro ao salvar. Verifique se a API está rodando.')
     }
-    fechar()
   }
 
-  const tituloModal =
-    modo === 'add' ? 'Adicionar Projeto' :
-    modo === 'edit' ? 'Editar Projeto' :
-    modo === 'delete' ? 'Excluir Projeto' : ''
-
+  const tituloModal = modo === 'add' ? 'Adicionar Projeto' : modo === 'edit' ? 'Editar Projeto' : 'Excluir Projeto'
   const itemSelecionado = projetos.find(p => String(p.id) === String(idSelecionado))
   const mostrarFormulario = modo === 'add' || (modo === 'edit' && idSelecionado)
 
   return (
-    <section className={styles.main}>
+    <section id="projetos" className={styles.main}>
       <h1 className={styles.pageTitle}>Meus Projetos</h1>
+
+      {loading && <p style={{ textAlign: 'center', padding: '2rem', color: '#6d6d6d' }}>Carregando...</p>}
+      {erro && <p style={{ textAlign: 'center', padding: '2rem', color: '#e05252' }}>Erro ao carregar. Verifique se a API está rodando.</p>}
 
       <div className={styles.containerCard}>
         {projetos.map(projeto => (
           <div key={projeto.id} className={styles.card}>
-            {projeto.imagem && (
-              <img className={styles.imgCard} src={projeto.imagem} alt={projeto.titulo} />
-            )}
+            {projeto.imagem && <img className={styles.imgCard} src={projeto.imagem} alt={projeto.titulo} />}
             <h2>{projeto.titulo}</h2>
             <p>{projeto.descricao}</p>
             <div className={styles.tagsTech}>
               <span className={styles.tags}>{projeto.tecnologias}</span>
             </div>
-
             <div className={styles.btnCard}>
               {projeto.link ? (
                 <a href={projeto.link} target="_blank" rel="noopener noreferrer">
@@ -122,24 +102,16 @@ function Projects() {
           {(modo === 'edit' || modo === 'delete') && (
             <div className={modalStyles.field}>
               <label className={modalStyles.label}>Selecione o projeto</label>
-              <select
-                className={modalStyles.select}
-                value={idSelecionado}
-                onChange={(e) => selecionar(e.target.value)}
-                required
-              >
+              <select className={modalStyles.select} value={idSelecionado} onChange={(e) => selecionar(e.target.value)} required>
                 <option value="">-- Escolha --</option>
-                {projetos.map(p => (
-                  <option key={p.id} value={p.id}>{p.titulo}</option>
-                ))}
+                {projetos.map(p => <option key={p.id} value={p.id}>{p.titulo}</option>)}
               </select>
             </div>
           )}
 
           {modo === 'delete' && itemSelecionado && (
             <p className={modalStyles.confirmText}>
-              Tem certeza que deseja excluir{' '}
-              <span className={modalStyles.confirmHighlight}>{itemSelecionado.titulo}</span>?
+              Tem certeza que deseja excluir <span className={modalStyles.confirmHighlight}>{itemSelecionado.titulo}</span>?
             </p>
           )}
 
@@ -147,77 +119,33 @@ function Projects() {
             <>
               <div className={modalStyles.field}>
                 <label className={modalStyles.label}>Título</label>
-                <input
-                  className={modalStyles.input}
-                  type="text"
-                  value={form.titulo}
-                  onChange={(e) => setForm({ ...form, titulo: e.target.value })}
-                  required
-                />
+                <input className={modalStyles.input} type="text" value={form.titulo} onChange={(e) => setForm({ ...form, titulo: e.target.value })} required />
               </div>
               <div className={modalStyles.field}>
                 <label className={modalStyles.label}>Descrição</label>
-                <textarea
-                  className={modalStyles.textarea}
-                  value={form.descricao}
-                  onChange={(e) => setForm({ ...form, descricao: e.target.value })}
-                  required
-                />
+                <textarea className={modalStyles.textarea} value={form.descricao} onChange={(e) => setForm({ ...form, descricao: e.target.value })} required />
               </div>
               <div className={modalStyles.field}>
                 <label className={modalStyles.label}>Tecnologias</label>
-                <input
-                  className={modalStyles.input}
-                  type="text"
-                  placeholder="React, Node.js"
-                  value={form.tecnologias}
-                  onChange={(e) => setForm({ ...form, tecnologias: e.target.value })}
-                  required
-                />
+                <input className={modalStyles.input} type="text" placeholder="React, Node.js" value={form.tecnologias} onChange={(e) => setForm({ ...form, tecnologias: e.target.value })} required />
               </div>
               <div className={modalStyles.field}>
                 <label className={modalStyles.label}>URL da imagem</label>
-                <input
-                  className={modalStyles.input}
-                  type="url"
-                  placeholder="https://..."
-                  value={form.imagem}
-                  onChange={(e) => setForm({ ...form, imagem: e.target.value })}
-                />
+                <input className={modalStyles.input} type="url" placeholder="https://..." value={form.imagem} onChange={(e) => setForm({ ...form, imagem: e.target.value })} />
               </div>
               <div className={modalStyles.field}>
                 <label className={modalStyles.label}>Link do repositório</label>
-                <input
-                  className={modalStyles.input}
-                  type="url"
-                  placeholder="https://github.com/..."
-                  value={form.link}
-                  onChange={(e) => setForm({ ...form, link: e.target.value })}
-                />
+                <input className={modalStyles.input} type="url" placeholder="https://github.com/..." value={form.link} onChange={(e) => setForm({ ...form, link: e.target.value })} />
               </div>
             </>
           )}
 
           <div className={modalStyles.actions}>
-            <button type="button" className={modalStyles.btnSecondary} onClick={fechar}>
-              Cancelar
-            </button>
+            <button type="button" className={modalStyles.btnSecondary} onClick={fechar}>Cancelar</button>
             {modo === 'delete' ? (
-              <button
-                type="submit"
-                className={modalStyles.btnDanger}
-                disabled={!idSelecionado}
-              >
-                Excluir
-              </button>
+              <button type="submit" className={modalStyles.btnDanger} disabled={!idSelecionado}>Excluir</button>
             ) : (
-              <button
-                type="submit"
-                className={modalStyles.btnPrimary}
-                disabled={modo === 'edit' && !idSelecionado}
-              >
-                Salvar
-              </button>
+              <button type="submit" className={modalStyles.btnPrimary} disabled={modo === 'edit' && !idSelecionado}>Salvar</button>
             )}
           </div>
         </form>

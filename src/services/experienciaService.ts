@@ -1,50 +1,43 @@
+const API = 'http://localhost:3001/api'
+
 export interface Experiencia {
-    id: number
-    nomeEmpresa: string
-    cargo: string
-    periodo: string
+  id: number
+  nomeEmpresa: string
+  cargo: string
+  periodo: string
 }
 
-export type ExperienciaInput = Omit<Experiencia, "id">
+export type ExperienciaInput = Omit<Experiencia, 'id'>
 
-const STORAGE_KEY = "minhasExperiencias"
-
-const experienciasIniciais: Experiencia[] = [
-    { id: 1, nomeEmpresa: "Kaffa Tech", cargo: "Estagiário de Desenvolvimento de Software", periodo: "Dez 2025 - Atual" },
-    { id: 2, nomeEmpresa: "Sonaca Brasil", cargo: "Auxiliar de TI", periodo: "Mar 2024 - Jun 2025" }
-]
-
-const salvar = (experiencias: Experiencia[]) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(experiencias))
+const checarResposta = async (res: Response) => {
+  if (!res.ok) throw new Error(`Erro ${res.status}: ${res.statusText}`)
+  return res.json()
 }
 
-export const getExperiencias = (): Experiencia[] => {
-    const textoSalvo = localStorage.getItem(STORAGE_KEY)
-    if (textoSalvo != null) {
-        return JSON.parse(textoSalvo)
-    }
-    salvar(experienciasIniciais)
-    return experienciasIniciais
+export const getExperiencias = async (): Promise<Experiencia[]> => {
+  const res = await fetch(`${API}/experiencias`)
+  return checarResposta(res)
 }
 
-export const adicionarExperiencia = (exp: ExperienciaInput): Experiencia[] => {
-    const lista = getExperiencias()
-    const nova: Experiencia = { id: Date.now(), ...exp }
-    const atualizado = [...lista, nova]
-    salvar(atualizado)
-    return atualizado
+export const adicionarExperiencia = async (exp: ExperienciaInput): Promise<Experiencia> => {
+  const res = await fetch(`${API}/experiencias`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(exp),
+  })
+  return checarResposta(res)
 }
 
-export const editarExperiencia = (id: number, exp: ExperienciaInput): Experiencia[] => {
-    const lista = getExperiencias()
-    const atualizado = lista.map(e => (e.id === id ? { id, ...exp } : e))
-    salvar(atualizado)
-    return atualizado
+export const editarExperiencia = async (id: number, exp: ExperienciaInput): Promise<Experiencia> => {
+  const res = await fetch(`${API}/experiencias/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(exp),
+  })
+  return checarResposta(res)
 }
 
-export const excluirExperiencia = (id: number): Experiencia[] => {
-    const lista = getExperiencias()
-    const atualizado = lista.filter(e => e.id !== id)
-    salvar(atualizado)
-    return atualizado
+export const excluirExperiencia = async (id: number): Promise<void> => {
+  const res = await fetch(`${API}/experiencias/${id}`, { method: 'DELETE' })
+  if (!res.ok) throw new Error(`Erro ${res.status}: ${res.statusText}`)
 }
