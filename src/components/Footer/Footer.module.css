@@ -1,94 +1,269 @@
-.main {
-    margin-top: 15rem;
+.footer {
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 96px;
 }
 
-.containerFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #111;
-    padding: 2rem 2rem;
-    /* margin-left: -20px;
-    margin-right: -20px;
-    margin-bottom: -20px; */
-    border-radius: 25px;
+.contact {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 48px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 168, 0.1), transparent 50%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.9);
 }
 
-.leftGroup {
-    margin-left: 1rem;
-    display: flex;
+/* mesma tag das outras seções */
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--cor-primaria, #ffffa8);
+  color: var(--cor-primaria, #ffffa8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 20px 0 16px;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* mesmo estilo dos botões do Hero */
+.button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 32px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.buttonLight {
+  background: rgba(241, 241, 241, 0.9);
+  color: #111;
+}
+
+.buttonLight:hover {
+  background: rgba(241, 241, 241, 0.75);
+}
+
+.buttonDark {
+  background: rgba(0, 0, 0, 0.8);
+  color: #f1f1f1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.buttonDark:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease;
+}
+
+.channel:hover {
+  border-color: rgba(255, 255, 168, 0.35);
+}
+
+/* mesma bolinha preta dos ícones do Hero */
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--cor-primaria, #ffffa8);
+}
+
+.icon img {
+  width: 22px;
+}
+
+.channelInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.channelLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.channelInfo a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.channelInfo a:hover {
+  color: var(--cor-primaria, #ffffa8);
+}
+
+.copy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.copy:hover {
+  border-color: var(--cor-primaria, #ffffa8);
+  color: var(--cor-primaria, #ffffa8);
+}
+
+/* barra final do rodapé */
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 64px;
+  padding: 24px 0 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.copyright {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a,
+.top {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover,
+.top:hover {
+  color: var(--cor-primaria, #ffffa8);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .contact {
+    /* minmax(0, …): o e-mail longo não pode alargar a coluna além da tela */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 64px;
+  }
+
+  .bottom {
     flex-direction: column;
-}
-
-.imgGroup {
-    display: flex;
-    justify-content: left;
-}
-
-.imgGroup img {
-    width: 40px;
-}
-
-.leftGroup h2 {
-    color: var(--cor-primaria);
-}
-
-.btnGroup {
-    display: flex;
-    justify-content: left;
-    margin-top: 20px;
-}
-
-.btnGroup button {
-    border-radius: 20px;
-    color: white;
-    background-color: black;
-    padding: 15px 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 15px;
-    border: 2px solid white;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.btnGroup button:hover {
-    color: black;
-    background-color: white;
-}
-
-.rightGroup{
-    display: flex;
-    gap: 4rem;
-    margin-right: 1rem;
-}
-
-.navMenu {
-    display: flex;
-    gap: 2rem
-}
-
-.rightGroup h3 {
-    color: var(--cor-primaria);
     text-align: center;
+  }
+
+  .nav {
+    justify-content: center;
+  }
 }
 
-.rightGroup ul {
-    list-style: none;
-    margin-top: 0;
-}
+/* celular: botão de copiar só com ícone, para o e-mail caber */
+@media (max-width: 480px) {
+  .copyText {
+    display: none;
+  }
 
-.rightGroup li {
-    padding: 0.3rem 0;
-}
+  .copy {
+    padding: 8px;
+  }
 
-.rightGroup a {
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    transition: 0.3s ease;
-}
-
-.rightGroup a:hover {
-    color: var(--cor-primaria); 
+  .channel {
+    gap: 12px;
+    padding: 12px;
+  }
 }

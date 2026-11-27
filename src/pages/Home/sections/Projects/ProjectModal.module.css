@@ -1,0 +1,210 @@
+/* mais largo que o padrão do BaseModal */
+.modal {
+  max-width: 1120px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+/* coluna esquerda fica parada enquanto os textos da direita rolam */
+.gallery {
+  position: sticky;
+  top: 0;
+}
+
+.viewer {
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #fff;
+}
+
+/* imagem: altura natural, sem faixas pretas */
+.mainMedia {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  border: 0;
+  object-fit: contain;
+}
+
+/* vídeo do YouTube precisa de proporção fixa */
+.viewerVideo {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.viewerVideo .mainMedia {
+  height: 100%;
+  max-height: none;
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.thumb {
+  flex: 0 0 96px;
+  height: 60px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.thumb:hover {
+  opacity: 1;
+}
+
+.thumb[aria-selected='true'] {
+  opacity: 1;
+  border-color: var(--cor-primaria, #ffffa8);
+}
+
+.thumb:focus-visible {
+  outline: 2px solid var(--cor-primaria, #ffffa8);
+  outline-offset: 2px;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+}
+
+/* resumo abaixo da galeria: categoria, link e tecnologias */
+.summary {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.summaryTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--cor-primaria, #ffffa8);
+  color: var(--cor-primaria, #ffffa8);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* mesmo estilo do botão claro do Hero, em tamanho menor */
+.repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 24px;
+  background: rgba(241, 241, 241, 0.9);
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.repo:hover {
+  background: rgba(241, 241, 241, 0.75);
+}
+
+.label {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor-primaria, #ffffa8);
+}
+
+.summary .label {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* coluna direita: blocos de texto separados por linhas */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  padding: 0 0 20px;
+}
+
+.block + .block {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .gallery {
+    position: static;
+  }
+}

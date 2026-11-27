@@ -1,7 +1,9 @@
 .main {
   position: relative;
   z-index: 5;
-  min-height: calc(100vh - 80px);
+  /* navbar é fixed (fora do fluxo), então a altura cheia centraliza no meio real da tela */
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,16 +14,28 @@
   position: relative;
   z-index: 5;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-self: stretch;
+  /* linhas 1 e 3 iguais: o nome (linha 2) fica exatamente no centro da tela */
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  justify-items: center;
 }
 
 .h1 {
   position: relative;
   width: 100%;
   height: 140px;
-  margin-bottom: 16px;
+  grid-row: 2;
+}
+
+.below {
+  grid-row: 3;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* o canvas do título tem folga vazia embaixo do texto; puxa o conteúdo pra cima */
+  margin-top: -12px;
 }
 
 .subtitle {
@@ -70,36 +84,74 @@
 .containerImgSocial {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.containerImgSocial a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.containerImgSocial a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .containerImgSocial img {
-  width: 60px;
+  width: 22px;
 }
 
 .btnCV {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  gap: 14px;
+  margin-top: 24px;
 }
 
-.btnCV button {
-  border-radius: 20px;
-  color: white;
-  background-color: black;
-  padding: 15px 25px;
-  text-transform: uppercase;
-  font-weight: bold;
+/* baseado em uiverse.io/sahilxkhadka/rotten-grasshopper-44 */
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 32px;
+  border-radius: 24px;
+  font-weight: 600;
   font-size: 15px;
-  border: 2px solid white;
-  transition: 0.3s ease;
-  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
-.btnCV button:hover {
-  color: black;
-  background-color: white;
+.button:active {
+  transform: scale(0.97);
+}
+
+.buttonLight {
+  background: rgba(241, 241, 241, 0.9);
+  color: #111;
+}
+
+.buttonLight:hover {
+  background: rgba(241, 241, 241, 0.75);
+}
+
+.buttonDark {
+  background: rgba(0, 0, 0, 0.8);
+  color: #f1f1f1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.buttonDark:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 @media (max-width: 768px) {

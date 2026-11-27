@@ -1,22 +1,42 @@
 [
     {
-        "id": 1,
-        "empresa": "Kaffa Tech",
-        "cargo": "Estagiário de Desenvolvedor de Software",
-        "inicioPeriodo": "Dez 2025"
+        "id": 3,
+        "empresa": "Atento Brasil",
+        "cargo": "Assistente de Service Desk",
+        "inicioPeriodo": "Abr 2023",
+        "fimPeriodo": "Mar 2024",
+        "logo": "empresas/atento.png",
+        "descricao": [
+            "Atendimento de chamados de suporte técnico de primeiro nível.",
+            "Resolução de problemas de acesso, contas e configurações de usuários.",
+            "Registro e acompanhamento de incidentes até a solução."
+        ]
     },
     {
         "id": 2,
         "empresa": "Sonaca Brasil",
         "cargo": "Auxiliar de T.I",
         "inicioPeriodo": "Mar 2024",
-        "fimPeriodo": "Jun 2025" 
+        "fimPeriodo": "Jun 2025",
+        "logo": "empresas/sonaca.png",
+        "descricao": [
+            "Suporte a usuários e manutenção de equipamentos e redes.",
+            "Instalação e configuração de softwares e estações de trabalho.",
+            "Apoio na documentação e organização de processos de T.I."
+        ]
     },
     {
-        "id": 3,
-        "empresa": "Atento Brasil",
-        "cargo": "Assistente de Service Desk",
-        "inicioPeriodo": "Abr 2023",
-        "fimPeriodo": "Mar 2024" 
+        "id": 1,
+        "empresa": "Kaffa Tech",
+        "cargo": "Estagiário de Desenvolvedor de Software",
+        "inicioPeriodo": "Dez 2025",
+        "logo": "empresas/kaffa.png",
+        "descricao": [
+            "Desenvolvimento de telas e componentes em Angular para os sistemas da empresa, voltados ao setor de utilities.",
+            "Criação e manutenção de APIs REST em C# com .NET, integrando o front-end às regras de negócio.",
+            "Escrita e otimização de consultas SQL e ajustes de estrutura no banco de dados Oracle.",
+            "Correção de bugs, participação em code reviews e entregas em sprints com o time."
+        ],
+        "tecnologias": ["Angular", "C#", ".NET", "Oracle"]
     }
 ]

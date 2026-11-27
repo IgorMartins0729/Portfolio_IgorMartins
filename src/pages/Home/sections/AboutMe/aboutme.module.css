@@ -1,85 +1,69 @@
 .main {
-    margin-top: 80px;
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 0;
 }
 
-.pageTitle {
-    text-align: center;
-    margin-bottom: 40px;
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--cor-primaria, #ffffa8);
+  color: var(--cor-primaria, #ffffa8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.sectionTitle {
-    color: var(--cor-primaria);
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1200px;
-    gap: 160px;
-}
-
-.containerContent {
-    flex: 1;
+.title {
+  margin: 20px 0 24px;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .description {
-    font-weight: 300;
-    line-height: 30px;
-    text-align: justify;
-    border-left: 2px solid var(--cor-primaria);
-    padding-left: 15px;
+  margin: 0 0 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.content {
-    border-left: 2px solid var(--cor-primaria);
-    padding-left: 15px;
+.photoWrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.experienceItem {
-    margin-bottom: 24px;
+.photo {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
 }
 
-.experienceItem:last-child {
-    margin-bottom: 0;
-}
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 64px 0;
+  }
 
-.period {
-    color: rgb(141, 140, 140);
-    margin: 0;
-    margin-top: 4px;
-    display: block;
-}
+  .photoWrapper {
+    order: -1;
+  }
 
-.role {
-   margin: 0; 
-}
-
-.companyName {
-    margin: 0;
-    margin-bottom: 4px;
-}
-
-.containerCRUD {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.containerCRUD button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    padding: 0;
-}
-
-.containerCRUD button:hover {
-    color: rgb(247, 247, 67);
+  .photo {
+    max-width: 280px;
+  }
 }

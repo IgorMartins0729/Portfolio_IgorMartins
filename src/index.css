@@ -31,3 +31,35 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
+
+/* scrollbar do site inteiro (página, timeline, modais): fina, escura, com o amarelo do tema */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 168, 0.35);
+    border-radius: 999px;
+    border: 2px solid #0a0a0a; /* borda da cor do trilho: o polegar parece mais fino e "flutuando" */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-primaria);
+}
+
+::-webkit-scrollbar-corner {
+    background: #0a0a0a;
+}
+
+/* Firefox não tem ::-webkit-scrollbar; no Chrome, scrollbar-color desligaria o estilo acima */
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 168, 0.35) #0a0a0a;
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "hardSkills": [
+        {
+            "categoria": "Front-end",
+            "itens": [
+                { "nome": "Angular", "icone": "angular/angular-original" },
+                { "nome": "React", "icone": "react/react-original" },
+                { "nome": "TypeScript", "icone": "typescript/typescript-original" },
+                { "nome": "JavaScript", "icone": "javascript/javascript-original" },
+                { "nome": "HTML", "icone": "html5/html5-original" },
+                { "nome": "CSS", "icone": "css3/css3-original" }
+            ]
+        },
+        {
+            "categoria": "Back-end",
+            "itens": [
+                { "nome": "C#", "icone": "csharp/csharp-original" },
+                { "nome": ".NET", "icone": "dotnetcore/dotnetcore-original" },
+                { "nome": "Node.js", "icone": "nodejs/nodejs-original" },
+                { "nome": "Express", "icone": "express/express-original", "inverterIcone": true },
+                { "nome": "Python", "icone": "python/python-original" },
+                { "nome": "Flask", "icone": "flask/flask-original", "inverterIcone": true },
+                { "nome": "Java", "icone": "java/java-original" },
+                { "nome": "Spring Boot", "icone": "spring/spring-original" },
+                { "nome": "PHP", "icone": "php/php-original" }
+            ]
+        },
+        {
+            "categoria": "Banco de dados",
+            "itens": [
+                { "nome": "Oracle", "icone": "oracle/oracle-original" },
+                { "nome": "MySQL", "icone": "mysql/mysql-original" },
+                { "nome": "PostgreSQL", "icone": "postgresql/postgresql-original" },
+                { "nome": "MongoDB", "icone": "mongodb/mongodb-original" },
+                { "nome": "Redis", "icone": "redis/redis-original" },
+                { "nome": "Cassandra", "icone": "cassandra/cassandra-original" },
+                { "nome": "Neo4j", "icone": "neo4j/neo4j-original" }
+            ]
+        },
+        {
+            "categoria": "Ferramentas & Infra",
+            "itens": [
+                { "nome": "Git", "icone": "git/git-original" },
+                { "nome": "GitHub", "icone": "github/github-original", "inverterIcone": true },
+                { "nome": "Docker", "icone": "docker/docker-original" },
+                { "nome": "Thunder Client" },
+                { "nome": "Linux", "icone": "linux/linux-original" },
+                { "nome": "Azure", "icone": "azure/azure-original" },
+                { "nome": "Figma", "icone": "figma/figma-original" },
+                { "nome": "Jira", "icone": "jira/jira-original" }
+            ]
+        }
+    ],
+    "softSkills": [
+        "Comunicação",
+        "Trabalho em equipe",
+        "Resolução de problemas",
+        "Aprendizado contínuo",
+        "Proatividade",
+        "Liderança",
+        "Empatia",
+        "Organização",
+        "Gestão de tempo",
+        "Criatividade",
+        "Resiliência",
+        "Responsabilidade",
+        "Receptivo a feedback"
+    ]
+}

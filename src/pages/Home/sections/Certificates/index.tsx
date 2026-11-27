@@ -1,142 +1,90 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from './Certificates.module.css'
-import modalStyles from '../../../../../components/BaseModal/BaseModal.module.css'
-import {
-  getCertificados,
-  adicionarCertificado,
-  editarCertificado,
-  excluirCertificado
-} from '../../../../../services/certificadoService'
-import BaseModal from '../../../../../components/BaseModal/BaseModal'
+import BaseModal from '@/components/BaseModal/BaseModal'
+import { getCertificados } from '@/services/dataService'
+import type { Certificate } from '@/types/certificate'
 
-const formInicial = { nome: '', instituicao: '', dataEmissao: '', imagem: '' }
+const POR_PAGINA = 6
+const base = import.meta.env.BASE_URL
 
 function Certificates() {
-  const [certificados, setCertificados] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [erro, setErro] = useState(false)
-  const [modo, setModo] = useState(null)
-  const [idSelecionado, setIdSelecionado] = useState('')
-  const [form, setForm] = useState(formInicial)
-
-  useEffect(() => {
-    getCertificados()
-      .then(setCertificados)
-      .catch(() => setErro(true))
-      .finally(() => setLoading(false))
-  }, [])
-
-  const abrirAdicionar = () => { setForm(formInicial); setIdSelecionado(''); setModo('add') }
-  const abrirEditar = () => { setIdSelecionado(''); setForm(formInicial); setModo('edit') }
-  const abrirExcluir = () => { setIdSelecionado(''); setModo('delete') }
-  const fechar = () => { setModo(null); setIdSelecionado(''); setForm(formInicial) }
-
-  const selecionar = (id) => {
-    setIdSelecionado(id)
-    if (modo === 'edit') {
-      const c = certificados.find(cert => String(cert.id) === String(id))
-      if (c) setForm({ nome: c.nome, instituicao: c.instituicao, dataEmissao: c.dataEmissao, imagem: c.imagem })
-    }
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      if (modo === 'add') {
-        const novo = await adicionarCertificado(form)
-        setCertificados(prev => [...prev, novo])
-      } else if (modo === 'edit' && idSelecionado) {
-        const atualizado = await editarCertificado(Number(idSelecionado), form)
-        setCertificados(prev => prev.map(c => c.id === atualizado.id ? atualizado : c))
-      } else if (modo === 'delete' && idSelecionado) {
-        await excluirCertificado(Number(idSelecionado))
-        setCertificados(prev => prev.filter(c => c.id !== Number(idSelecionado)))
-      }
-      fechar()
-    } catch {
-      alert('Erro ao salvar. Verifique se a API está rodando.')
-    }
-  }
-
-  const tituloModal = modo === 'add' ? 'Adicionar Certificado' : modo === 'edit' ? 'Editar Certificado' : 'Excluir Certificado'
-  const itemSelecionado = certificados.find(c => String(c.id) === String(idSelecionado))
-  const mostrarFormulario = modo === 'add' || (modo === 'edit' && idSelecionado)
+  const certificados = getCertificados()
+  const [visiveis, setVisiveis] = useState(POR_PAGINA)
+  const [aberto, setAberto] = useState<Certificate | null>(null)
+  const temMais = certificados.length > visiveis
 
   return (
     <section id="certificados" className={styles.main}>
-      <h1 className={styles.pageTitle}>Meus Certificados</h1>
+      <div className={styles.header}>
+        <div>
+          <span className={styles.tag}>Certificados</span>
+          <h2 className={styles.title}>Aprendizado contínuo.</h2>
+        </div>
+        <p className={styles.count}>
+          <strong>{certificados.length}</strong> {certificados.length === 1 ? 'certificado' : 'certificados'}
+        </p>
+      </div>
 
-      {loading && <p style={{ textAlign: 'center', padding: '2rem', color: '#6d6d6d' }}>Carregando...</p>}
-      {erro && <p style={{ textAlign: 'center', padding: '2rem', color: '#e05252' }}>Erro ao carregar. Verifique se a API está rodando.</p>}
-
-      <div className={styles.containerCard}>
-        {!loading && !erro && certificados.length === 0 && (
-          <p className={styles.empty}>Nenhum certificado cadastrado ainda.</p>
-        )}
-        {certificados.map(cert => (
-          <div key={cert.id} className={styles.card}>
-            {cert.imagem && <img className={styles.imgCard} src={cert.imagem} alt={cert.nome} />}
-            <h3>{cert.nome}</h3>
-            <p>{cert.instituicao}</p>
-            <p className={styles.date}>{cert.dataEmissao}</p>
-          </div>
+      <div className={`${styles.grid} ${temMais ? styles.faded : ''}`}>
+        {certificados.slice(0, visiveis).map(cert => (
+          <button key={cert.id} type="button" className={styles.card} onClick={() => setAberto(cert)}>
+            {/* spans: botão só aceita conteúdo inline */}
+            <span className={`${styles.imageWrap} ${cert.badge ? styles.badgeWrap : ''}`}>
+              <img className={styles.image} src={`${base}${cert.imagem}`} alt="" loading="lazy" />
+              {cert.badge && <span className={styles.badgeTag}>Badge digital</span>}
+              <span className={styles.zoom}>Ampliar</span>
+            </span>
+            <span className={styles.info}>
+              <span className={styles.cardTitle}>{cert.titulo}</span>
+              <span className={styles.institution}>{cert.instituicao}</span>
+              <span className={styles.meta}>
+                {[cert.dataEmissao, cert.cargaHoraria].filter(Boolean).join(' · ')}
+              </span>
+            </span>
+          </button>
         ))}
       </div>
 
-      <div className={styles.containerCRUD}>
-        <button type="button" onClick={abrirAdicionar}>Adicionar Certificado</button>
-        <button type="button" onClick={abrirEditar}>Editar Certificado</button>
-        <button type="button" onClick={abrirExcluir}>Excluir Certificado</button>
-      </div>
+      {temMais && (
+        <div className={styles.loadMore}>
+          <button type="button" onClick={() => setVisiveis(v => v + POR_PAGINA)}>
+            Ver mais certificados
+          </button>
+        </div>
+      )}
 
-      <BaseModal isOpen={modo !== null} onClose={fechar} title={tituloModal}>
-        <form className={modalStyles.form} onSubmit={handleSubmit}>
-          {(modo === 'edit' || modo === 'delete') && (
-            <div className={modalStyles.field}>
-              <label className={modalStyles.label}>Selecione o certificado</label>
-              <select className={modalStyles.select} value={idSelecionado} onChange={(e) => selecionar(e.target.value)} required>
-                <option value="">-- Escolha --</option>
-                {certificados.map(c => <option key={c.id} value={c.id}>{c.nome}</option>)}
-              </select>
+      {certificados.length === 0 && <p className={styles.empty}>Nenhum certificado cadastrado ainda.</p>}
+
+      <BaseModal isOpen={aberto !== null} onClose={() => setAberto(null)} title={aberto?.titulo ?? ''} className={styles.modal}>
+        {aberto && (
+          <>
+            <img
+              className={`${styles.modalImage} ${aberto.badge ? styles.modalBadge : ''}`}
+              src={`${base}${aberto.imagem}`}
+              alt={`Certificado: ${aberto.titulo}`}
+            />
+            <div className={styles.modalFooter}>
+              <span className={styles.institution}>
+                {[aberto.instituicao, aberto.dataEmissao, aberto.cargaHoraria].filter(Boolean).join(' · ')}
+              </span>
+              {aberto.pdf && (
+                <a className={styles.pdf} href={`${base}${aberto.pdf}`} target="_blank" rel="noopener noreferrer">
+                  Abrir PDF
+                </a>
+              )}
             </div>
-          )}
-
-          {modo === 'delete' && itemSelecionado && (
-            <p className={modalStyles.confirmText}>
-              Tem certeza que deseja excluir <span className={modalStyles.confirmHighlight}>{itemSelecionado.nome}</span>?
-            </p>
-          )}
-
-          {mostrarFormulario && (
-            <>
-              <div className={modalStyles.field}>
-                <label className={modalStyles.label}>Nome do certificado</label>
-                <input className={modalStyles.input} type="text" value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} required />
-              </div>
-              <div className={modalStyles.field}>
-                <label className={modalStyles.label}>Instituição</label>
-                <input className={modalStyles.input} type="text" value={form.instituicao} onChange={(e) => setForm({ ...form, instituicao: e.target.value })} required />
-              </div>
-              <div className={modalStyles.field}>
-                <label className={modalStyles.label}>Data de emissão (MM/AAAA)</label>
-                <input className={modalStyles.input} type="text" placeholder="12/2025" value={form.dataEmissao} onChange={(e) => setForm({ ...form, dataEmissao: e.target.value })} required />
-              </div>
-              <div className={modalStyles.field}>
-                <label className={modalStyles.label}>URL da imagem</label>
-                <input className={modalStyles.input} type="url" placeholder="https://..." value={form.imagem} onChange={(e) => setForm({ ...form, imagem: e.target.value })} />
-              </div>
-            </>
-          )}
-
-          <div className={modalStyles.actions}>
-            <button type="button" className={modalStyles.btnSecondary} onClick={fechar}>Cancelar</button>
-            {modo === 'delete' ? (
-              <button type="submit" className={modalStyles.btnDanger} disabled={!idSelecionado}>Excluir</button>
-            ) : (
-              <button type="submit" className={modalStyles.btnPrimary} disabled={modo === 'edit' && !idSelecionado}>Salvar</button>
+            {aberto.competencias && aberto.competencias.length > 0 && (
+              <>
+                <h3 className={styles.competenciasLabel}>Competências</h3>
+                <ul className={styles.competencias}>
+                  {aberto.competencias.map(c => (
+                    <li key={c}>{c}</li>
+                  ))}
+                </ul>
+              </>
             )}
-          </div>
-        </form>
+          </>
+        )}
       </BaseModal>
     </section>
   )

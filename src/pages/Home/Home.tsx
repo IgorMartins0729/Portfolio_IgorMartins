@@ -1,20 +1,22 @@
 import Hero from "@/pages/Home/sections/Hero"
-// import AboutMe from "./sections/AboutMe/AboutMe"
-// import Academic from "./sections/Academic/Academic"
-// import Projects from "./sections/Projects/Projects"
-// import Skills from "./sections/Skills/Skills"
-// import Certificates from "./sections/Certificates/Certificates"
+import AboutMe from "@/pages/Home/sections/AboutMe"
+import Academic from "@/pages/Home/sections/Academic"
+import Experience from "@/pages/Home/sections/Experience"
+import Projects from "@/pages/Home/sections/Projects"
+import Skills from "@/pages/Home/sections/Skills"
+import Certificates from "@/pages/Home/sections/Certificates"
 
 
 function Home() {
   return (
     <main>
       <Hero />
-      {/* <AboutMe />
+      <AboutMe />
+      <Experience />
       <Academic />
       <Projects />
       <Skills />
-      <Certificates /> */}
+      <Certificates />
     </main>
   )
 }

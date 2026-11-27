@@ -39,6 +39,7 @@ interface AnimationEngine {
 
 const CENTER_LINKS: NavLinkItem[] = [
   { label: 'Sobre mim', href: '#sobre-mim' },
+  { label: 'Experiência', href: '#experiencia' },
   { label: 'Formação Acadêmica', href: '#academico' },
   { label: 'Projetos', href: '#projetos' },
   { label: 'Hard & Soft Skills', href: '#skills' },
@@ -51,6 +52,7 @@ const NAV_ITEMS: NavCardItem[] = [
     description: 'Trajetória profissional e base acadêmica.',
     links: [
       { label: 'Sobre mim', href: '#sobre-mim' },
+      { label: 'Experiência', href: '#experiencia' },
       { label: 'Formação Acadêmica', href: '#academico' }
     ]
   },

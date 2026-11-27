@@ -1,106 +1,192 @@
 .main {
-    margin-top: 80px;
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 0;
 }
 
-.pageTitle {
-    text-align: center;
+/* mesma tag das outras seções */
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--cor-primaria, #ffffa8);
+  color: var(--cor-primaria, #ffffa8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.containerCard {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+.title {
+  margin: 20px 0 40px;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.card {
-    flex: 1;
-    max-width: 600px;
-    background-color: #111;
-    border-radius: 15px;
-    padding: 0.5rem 2rem;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
+.block + .block {
+  margin-top: 48px;
 }
 
-.titleCard {
-    color: var(--cor-primaria);
-    border-bottom: 2px solid rgb(45, 45, 45);
+.label {
+  margin: 0 0 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.contentCardSoft {
-    display: grid;
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
-.itemSoft {
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    border: 2px solid rgb(50, 50, 50);
-    padding: 0.2rem 1rem;
-    gap: 1rem;
-    margin-bottom: 0.7rem;
-    transition: all 0.3s ease;
+.category {
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.itemSoft:hover {
-    transform: translateY(-5px);
-    border: 2px solid rgb(163, 163, 163);
+.categoryName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-.contentCardHard {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.categoryCount {
+  min-width: 28px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 168, 0.12);
+  color: var(--cor-primaria, #ffffa8);
+  font-size: 0.8rem;
+  text-align: center;
 }
 
-.itemHard {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    border-radius: 10px;
-    border: 2px solid rgb(50, 50, 50);
-    padding: 0.5rem 0.5rem;
-    gap: 1rem;
-    transition: all 0.3s ease;
+.techs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.itemHard:hover {
-    transform: translateY(-5px);
-    border: 2px solid rgb(163, 163, 163);
+.tech {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px 8px 8px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.imgItemHard {
-   width: 40px;
-   object-fit: cover;
+.tech:hover {
+  border-color: rgba(255, 255, 168, 0.4);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.itemHard h3 {
-    text-align: center;
-    margin-top: 0;
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  /* escuro, mas não preto puro: ícones azul-escuros (MySQL) ainda precisam de contraste */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-weight: 700;
 }
 
-.containerCRUD {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+.icon img {
+  width: 24px;
+  height: 24px;
 }
 
-.containerCRUD button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    padding: 0;
+/* ícones pretos (GitHub, Flask) ficam brancos para aparecer no fundo escuro */
+.inverted {
+  filter: invert(1);
 }
 
-.containerCRUD button:hover {
-    color: rgb(247, 247, 67);
+.softGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
+.soft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  font-weight: 600;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
 
+.soft:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria, #ffffa8);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 64px 0;
+  }
+
+  .categories {
+    grid-template-columns: 1fr;
+  }
+
+  /* duas tecnologias por linha no celular, em vez de uma lista comprida */
+  .category {
+    padding: 18px;
+  }
+
+  .techs {
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 8px;
+  }
+
+  .tech {
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+
+  .softGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .softGrid {
+    grid-template-columns: 1fr;
+  }
+}

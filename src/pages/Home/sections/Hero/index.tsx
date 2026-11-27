@@ -38,12 +38,33 @@ function Hero() {
           />
         </div>
 
+        <div className={styles.below}>
         <p className={styles.subtitle}>FullStack Developer</p>
 
         <blockquote className={styles.quote}>
           &ldquo;Make it work, make it right, make it fast.&rdquo;
           <cite className={styles.quoteAuthor}>— Kent Beck</cite>
         </blockquote>
+
+        <div className={styles.btnCV}>
+          <a href="#projetos" className={`${styles.button} ${styles.buttonLight}`}>
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" width="22" height="22">
+              <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12H19M19 12L13 6M19 12L13 18" />
+            </svg>
+            Ver Projetos
+          </a>
+          <a
+            href={`${import.meta.env.BASE_URL}Curriculo_IgorMartins.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.button} ${styles.buttonDark}`}
+          >
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" width="22" height="22">
+              <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" />
+            </svg>
+            Baixar Currículo
+          </a>
+        </div>
 
         <div className={styles.containerImgSocial}>
           <a href="https://www.linkedin.com/in/igormrtns/" target="_blank" rel="noopener noreferrer">
@@ -53,11 +74,6 @@ function Hero() {
             <img src={logoGithub} alt="GitHub de Igor Martins" />
           </a>
         </div>
-
-        <div className={styles.btnCV}>
-          <a href={`${import.meta.env.BASE_URL}Curriculo_IgorMartins.pdf`} target="_blank" rel="noopener noreferrer">
-            <button className={styles.button}>Baixar Currículo</button>
-          </a>
         </div>
       </div>
     </section>

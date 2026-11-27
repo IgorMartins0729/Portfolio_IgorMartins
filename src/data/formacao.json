@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "curso": "Ensino Médio / Técnico em Informática",
+        "instituicao": "Colégio Joseense",
+        "grau": "Ensino Médio Técnico",
+        "inicioPeriodo": "Jan 2020",
+        "fimPeriodo": "Dez 2022"
+    },
+    {
+        "id": 2,
+        "curso": "Desenvolvimento de Software Multiplataforma",
+        "instituicao": "FATEC São José dos Campos",
+        "grau": "Tecnólogo",
+        "inicioPeriodo": "Ago 2025",
+        "fimPeriodo": "Jun 2028",
+        "destaques": [
+            "Desenvolvimento Web",
+            "Engenharia de Software",
+            "Banco de Dados Relacional",
+            "Banco de Dados Não Relacional",
+            "Estrutura de Dados",
+            "Técnicas de Programação",
+            "Gestão Ágil de Projetos de Software",
+            "Interação Humano Computador",
+            "Algoritmos e Lógica de Programação",
+            "Modelagem de Banco de Dados",
+            "Design Digital",
+            "Sistemas Operacionais e Redes de Computadores",
+            "Matemática para Computação",
+            "Álgebra Linear",
+            "Inglês"
+        ]
+    }
+]

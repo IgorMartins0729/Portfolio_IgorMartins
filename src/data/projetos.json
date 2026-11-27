@@ -1,0 +1,103 @@
+[
+  {
+    "id": 4,
+    "capa1": "projetos/SANJAFEET.png",
+    "capa2": "projetos/tcc.png",
+    "imagens": [
+      "projetos/sanja.png"
+    ],
+    "titulo": "TCC Sanja Feet",
+    "descricao": "Loja virtual de tênis exclusivos, desenvolvida como Trabalho de Conclusão de Curso do Técnico em Informática no Colégio Joseense.",
+    "objetivo": "Criar uma experiência de compra online simples e segura para quem procura tênis exclusivos.",
+    "tecnologias": [
+      "PHP",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "https://github.com/IgorMartins0729/ProjectSanjaFeet_TCCTechnical",
+    "minhaColaboracao": "Desenvolvi a loja virtual com PHP no back-end e HTML, CSS e JavaScript no front-end, incluindo a página inicial com a apresentação da loja e as vitrines de produtos, o cadastro e login de clientes e a navegação entre as seções do site.",
+    "categoria": "academico"
+  },
+  {
+    "id": 1,
+    "capa1": "projetos/sjc-logo.png",
+    "capa2": "projetos/sjc.png",
+    "imagens": [],
+    "titulo": "Censo 2022 SJC",
+    "descricao": "A Secretaria Municipal de Planejamento Urbano de São José dos Campos tinha dificuldade para transformar os dados brutos do Censo 2022 em informações úteis e responder rapidamente a população, vereadores e imprensa sobre crescimento populacional, creches, trânsito, serviços e envelhecimento da população. O projeto substitui relatórios em papel por painéis digitais online e gratuitos, com filtros por região e faixa etária, gráficos e mapas interativos.",
+    "objetivo": "Desenvolver uma plataforma acessível e interativa que transforme os dados brutos do Censo 2022 em informações claras e dinâmicas, permitindo à Secretaria de Planejamento Urbano responder rapidamente às demandas e apoiar o planejamento urbano com painéis atualizados, filtros por região e faixa etária, gráficos e mapas interativos.",
+    "tecnologias": [
+      "Python",
+      "Flask",
+      "Streamlit",
+      "Pandas",
+      "Jupyter Notebook",
+      "MySQL",
+      "Docker",
+      "HTML",
+      "CSS",
+      "Jira",
+      "Git",
+      "GitHub"
+    ],
+    "link": "https://github.com/FATCK06/ProjectAPI_FirstSemester",
+    "minhaColaboracao": "Fui o Scrum Master do time, conduzindo as cerimônias, organizando o backlog e acompanhando as entregas de cada sprint. Montei a estrutura inicial do repositório, com as pastas de front-end e back-end, o .gitignore e a pasta de documentação com o backlog e o guia de estilo. No front-end, desenvolvi o header, a navbar e a home com HTML e CSS, organizei os estilos em arquivos próprios e ajustei imagens, cores e efeitos de hover. Também fui responsável pelo README do projeto, mantendo a estrutura, as datas das sprints, o backlog e as informações da equipe sempre atualizados.",
+    "categoria": "academico",
+    "video": "https://www.youtube.com/watch?v=Q94hcJWcIXA"
+  },
+  {
+    "id": 5,
+    "capa1": "projetos/akaer-logo.png",
+    "capa2": "projetos/akaer.png",
+    "imagens": [],
+    "titulo": "Akaer",
+    "descricao": "Plataforma web para centralizar, organizar e correlacionar requisitos normativos aeronáuticos, servindo como fonte estruturada de dados para apoiar a análise de profissionais habilitados.",
+    "objetivo": "Garantir maior organização, rastreabilidade e eficiência no processo de conformidade regulatória aeronáutica.",
+    "tecnologias": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Supabase",
+      "Figma",
+      "Jira",
+      "Git",
+      "GitHub"
+    ],
+    "link": "https://github.com/FATCK06/ProjectAPI_SecondSemester",
+    "minhaColaboracao": "Atuei como desenvolvedor full stack ao longo das três sprints do projeto, organizadas com Scrum. Iniciei a estrutura do front-end em React e implementei o login com Next.js, integrado à autenticação do Supabase. Criei a sidebar e os layouts base da aplicação, a página inicial e ajustes de usabilidade nos formulários. Desenvolvi a funcionalidade de normas correlacionadas, que permite visualizar a relação entre requisitos normativos na tela de detalhes, contribuindo para a rastreabilidade das normas. Também resolvi conflitos de integração entre as branches do time e mantive a documentação do README atualizada a cada entrega.",
+    "categoria": "academico",
+    "video": "https://youtu.be/Ylr-959Tl1k"
+  },
+  {
+    "id": 6,
+    "capa1": "projetos/newe-logo.png",
+    "capa2": "projetos/newe.png",
+    "imagens": [],
+    "titulo": "Newe Log",
+    "descricao": "Sistema para gestores e responsáveis pela operação logística acompanharem os motoristas agregados, centralizando quantidade de viagens, disponibilidade dos motoristas e rentabilidade das operações em uma visão simples e organizada.",
+    "objetivo": "Centralizar o controle dos motoristas agregados, permitindo acompanhar viagens realizadas, disponibilidade e rentabilidade das operações, facilitando a gestão operacional e apoiando decisões com base nesses indicadores.",
+    "tecnologias": [
+      "React",
+      "TypeScript",
+      "CSS",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Supabase",
+      "Docker",
+      "Figma",
+      "Jira",
+      "Git",
+      "GitHub"
+    ],
+    "link": "https://github.com/FATCK06/ProjectAPI_ThirdSemester",
+    "minhaColaboracao": "Atuei como desenvolvedor full stack do início ao fim do projeto, ao longo de três sprints com Scrum. Montei a base do repositório: estrutura do front-end e do back-end, API Gateway com os microsserviços de frotas e de operações e o versionamento do banco de dados. No back-end em Java, criei a autenticação: endpoint POST /login, conexão com o PostgreSQL (Supabase) e geração de token de segurança. No front-end em React com TypeScript, desenvolvi a sidebar com skeleton loader, o fluxo de importação de dados em etapas (upload da planilha, mapeamento de colunas e revisão, com jobs, toasts de status e card de validação), o upload da planilha de veículos de ponta a ponta, o registro da última importação, os gráficos do dashboard, o bloqueio de rotas com tela de acesso negado por perfil e a responsividade para notebooks menores. Também estruturei o README com o backlog do produto, as sprints e o manual do usuário.",
+    "categoria": "academico",
+    "video": "https://youtu.be/irGgT2lX5-Y"
+  }
+]

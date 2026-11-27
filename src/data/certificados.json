@@ -1,0 +1,35 @@
+[
+    {
+        "id": 2,
+        "titulo": "Introdução ao Scrum",
+        "instituicao": "FGV Online",
+        "imagem": "certificados/fgv-introducao-ao-scrum.png",
+        "dataEmissao": "Ago 2025",
+        "cargaHoraria": "6h"
+    },
+    {
+        "id": 1,
+        "titulo": "Escola de Inovadores (20ª Edição)",
+        "instituicao": "Inova CPS — Centro Paula Souza",
+        "imagem": "certificados/CERTIFICADO_-_2025-2_page-0001.jpg",
+        "dataEmissao": "Out 2025",
+        "cargaHoraria": "40h",
+        "pdf": "certificados/CERTIFICADO_-_2025-2.pdf"
+    },
+    {
+        "id": 3,
+        "titulo": "Micro Certificação em Front-End Básico",
+        "instituicao": "Fatec — Centro Paula Souza",
+        "imagem": "certificados/badge-front-end-basico.png",
+        "dataEmissao": "Nov 2026",
+        "badge": true,
+        "competencias": [
+            "Analisar e corrigir scripts maliciosos e Cross-Site Scripting, seguindo padrões de segurança recomendados.",
+            "Especificar requisitos, projetar e documentar soluções de software com base em teorias, modelos e técnicas apropriadas.",
+            "Aplicar boas práticas de Arquitetura da Informação no desenvolvimento para dispositivos móveis, web e desktop.",
+            "Modelar e implantar processos de negócio, propondo soluções de TI para aumentar a competitividade das organizações.",
+            "Desenvolver soluções de software com conceitos e técnicas de Design Digital e Visual.",
+            "Construir páginas web responsivas com linguagem de marcação, adaptadas aos mais diversos dispositivos."
+        ]
+    }
+]
