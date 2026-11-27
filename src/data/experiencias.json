@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "empresa": "Kaffa Tech",
+        "cargo": "Estagiário de Desenvolvedor de Software",
+        "inicioPeriodo": "Dez 2025"
+    },
+    {
+        "id": 2,
+        "empresa": "Sonaca Brasil",
+        "cargo": "Auxiliar de T.I",
+        "inicioPeriodo": "Mar 2024",
+        "fimPeriodo": "Jun 2025" 
+    },
+    {
+        "id": 3,
+        "empresa": "Atento Brasil",
+        "cargo": "Assistente de Service Desk",
+        "inicioPeriodo": "Abr 2023",
+        "fimPeriodo": "Mar 2024" 
+    }
+]

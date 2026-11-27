@@ -26,3 +26,8 @@ body {
 button {
     font-family: "Montserrat", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
